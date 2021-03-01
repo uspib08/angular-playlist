@@ -7,7 +7,7 @@ let b1 = new banquePlaylist();
 
 app.use(express.json())
 
-app.post('/:nom/:createur/:style', function(req,res) {
+app.post('/creerPlay/:nom/:createur/:style', function(req,res) {
     // var objres = b1.creerPlaylist(req.params.nom, req.params.createur, req.params.style);
     b1.creerPlaylist(req.params.nom, req.params.createur, req.params.style);
     res.send(b1);
@@ -16,6 +16,18 @@ app.post('/:nom/:createur/:style', function(req,res) {
     // else res.status(201).json(objres);
 });
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/affichePlay/:id', function(req, res){
+    res.json(b1.afficherListePlaylist(req.params.id));
+});
+
+app.put('/ajouterMorc/:id/:titre/:artiste', function(req, res){
+    b1.ajouterMorceauPlaylist(req.params.id, req.params.titre, req.params.artiste);
+    res.json(b1.afficherListePlaylist(req.params.id));
+});
+
+app.put('/ajouterContri/:id/:contri', function(req, res){
+    b1.ajouterContributeurPlaylist(req.params.id, req.params.contri);
+    res.json(b1.afficherListePlaylist(req.params.id));
+});
 
 app.listen(port, () => console.log(`Example app listening on port port!`));

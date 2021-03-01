@@ -19,7 +19,11 @@ module.exports = class banquePlaylist{
     }
 
     ajouterMorceauPlaylist(id, titre, artiste){
-        b.listPlaylist[id].ajouterMorceau(titre, artiste);
+        this.listPlaylist[id].ajouterMorceau(titre, artiste);
+
+    }
+    ajouterContributeurPlaylist(id, contri){
+        this.listPlaylist[id].ajouterContributeur(contri);
 
     }
 
