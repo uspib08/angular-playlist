@@ -1,4 +1,7 @@
 const Morceau = require('./Morceau');
+// var _listMorceaux = {};
+// var _listContributeurs = {};
+
 
 module.exports = class Playlist{
     constructor(nom, createur, style){
@@ -6,8 +9,8 @@ module.exports = class Playlist{
         this._createur = createur;
         this._style = style;
         this._nbclicks =0;
-        this._listMorceaux = new Array();
-        this._listContributeurs = new Array();
+        this._listMorceaux = [];
+        this._listContributeurs = [];
     }
 
     ajouterMorceau(titre, artiste){
@@ -24,16 +27,12 @@ module.exports = class Playlist{
         this._listContributeurs.push(contri);
     }
 
-    get _listMorceaux(){
+    get listMorceaux(){
         this._nbclicks++;
         return this._listMorceaux;
     }
 
-    set _listMorceaux(listem){
-        this._listMorceaux = listem;
-    }
-
-    get _listContributeurs(){
+    get listContributeurs(){
         return this._listContributeurs;
     }
 

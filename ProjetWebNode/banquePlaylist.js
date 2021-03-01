@@ -14,9 +14,16 @@ module.exports = class banquePlaylist{
         return id;
     }
 
-    afficherPlaylist(id){
-        if (typeof this.listePlaylist[id] === 'undefined')
-			return false;
+    afficherListePlaylist(id){
         return this.listPlaylist[id];
+    }
+
+    ajouterMorceauPlaylist(id, titre, artiste){
+        b.listPlaylist[id].ajouterMorceau(titre, artiste);
+
+    }
+
+    get play(){
+        return this.listPlaylist;
     }
 }
