@@ -28,7 +28,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/bootstrap/scss/bootstrap-grid.scss",
+              "node_modules/bootstrap/scss/bootstrap-reboot.scss"
             ],
             "scripts": []
           },
@@ -124,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "ProjetWeb"
+  "defaultProject": "ProjetWeb",
+  "cli": {
+    "analytics": "3b38c9ca-eab2-4a0e-a3b2-84863c3d3bee"
+  }
 }
