@@ -9,16 +9,24 @@ import { PlayList } from '../PlayList';
 })
 export class ListerPlaylistComponent implements OnInit {
   public playlist : PlayList = new PlayList();
+  public listPlaylist : Array<PlayList>;
 
 
-  constructor(private apimusique:  ApiMusiqueService) { }
+
+
+  constructor(private apimusique:  ApiMusiqueService) {
+    this.listPlaylist= new Array<PlayList>();
+
+  }
 
   ngOnInit() {
   }
 
    public afficherListPlaylist(){
-     this.apimusique.afficherToutePlaylist().subscribe((response) => {console.log(response)},
+     this.apimusique.afficherToutePlaylist().subscribe((response) => {this.listPlaylist.push(response)},
     (error)=>{console.log("Erreur d'affichage playlist : " +error)});
+    console.log(this.listPlaylist);
+
 
    }
 }
