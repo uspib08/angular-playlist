@@ -7,7 +7,7 @@ import { PlayList } from './PlayList';
   providedIn: 'root'
 })
 export class ApiMusiqueService {
-  private url = 'http://localhost:3000';
+  private url = 'http://localhost:3000/';
   constructor(private httpclient : HttpClient) { }
 
   public creerPlaylist(nom : string, createur: string, style:string){
@@ -20,7 +20,10 @@ export class ApiMusiqueService {
   public afficherPlaylist(id : number) : Observable<PlayList>{
     return this.httpclient.get<PlayList>(this.url+id);
   }
-
+  public afficherToutePlaylist(){
+    console.log(this.url+"afficheToutesPlay");
+    return this.httpclient.get<PlayList>(this.url+"afficheToutesPlay");
+  }
 
   public ajouterMorceau(id : number, titre : string, artiste : string){
     this.httpclient.put(this.url+"ajouterMorc/"+ id +"/"+titre+"/"+artiste, { title: 'Angular POST Request Example2' })
