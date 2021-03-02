@@ -1,1 +1,21 @@
 <p>Liste des playlists</p>
+
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nom</th>
+      <th>Créateur</th>
+      <th>Nombre de cliques</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr **ngFor="let play of this.liste; index as i">
+      <th>{{i+1}}</th>
+      <th>{{play._nom}}</th>
+      <th>{{play._createur}}</th>
+      <th>{{play._nbclicks}}</th>
+    </tr>
+  </tbody>
+</table>
