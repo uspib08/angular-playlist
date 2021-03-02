@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <tr **ngFor="let play of this.liste; index as i">
+    <tr *ngFor="let play of listPlaylist; index as i">
       <th>{{ i + 1 }}</th>
       <th>{{ play._nom }}</th>
       <th>{{ play._createur }}</th>
