@@ -1,4 +1,4 @@
-import { AjouterPlaylistComponent } from './../Ajouter-playlist/Ajouter-playlist.component';
+import { AjouterPlaylistComponent } from './Ajouter-playlist/Ajouter-playlist.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ApiMusiqueService } from './apiMusique.service';
@@ -8,9 +8,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { from } from 'rxjs';
-import { ListerPlaylistComponent } from './../Lister-Playlist/Lister-Playlist.component';
-import { AfficherPlaylistComponent } from './../Afficher-Playlist/Afficher-Playlist.component';
-import { ListeMorceauxComponent } from './../Liste-Morceaux/Liste-Morceaux.component';
+import { ListerPlaylistComponent } from './Lister-Playlist/Lister-Playlist.component';
+import { AfficherPlaylistComponent } from './Afficher-Playlist/Afficher-Playlist.component';
+import { ListeMorceauxComponent } from './Liste-Morceaux/Liste-Morceaux.component';
 
 const appRoutes: Routes = [
   {path: 'ajouter', component : AjouterPlaylistComponent},
