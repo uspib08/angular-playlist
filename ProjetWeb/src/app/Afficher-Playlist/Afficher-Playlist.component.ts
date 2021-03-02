@@ -1,3 +1,5 @@
+import { PlayList } from '../PlayList';
+import { ApiMusiqueService } from '../apiMusique.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,5 +13,7 @@ export class AfficherPlaylistComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
 
 }

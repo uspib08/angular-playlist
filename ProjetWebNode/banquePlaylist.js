@@ -17,6 +17,9 @@ module.exports = class banquePlaylist{
     afficherListePlaylist(id){
         return this.listPlaylist[id];
     }
+    afficherToutePlaylist(){
+        return this.listPlaylist;
+    }
 
     ajouterMorceauPlaylist(id, titre, artiste){
         this.listPlaylist[id].ajouterMorceau(titre, artiste);
