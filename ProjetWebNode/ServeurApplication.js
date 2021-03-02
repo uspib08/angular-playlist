@@ -8,12 +8,16 @@ let b1 = new banquePlaylist();
 app.use(express.json())
 
 app.post('/:nom/:createur/:style', function(req,res) {
+    console.log("test : ok ?");
+    console.log(req.params);
     var objres = b1.creerPlaylist(req.params.nom, req.params.createur, req.params.style);
-    // res.send(b1);
-    if((typeof objres === 'undefined') || (typeof objres === {}))
+    res.send(b1);
+    
+   /* if((typeof objres === 'undefined') || (typeof objres === {}))
         res.status(400);
-    else res.status(201).json(objres);
+    else res.status(201).json(objres);*/
 });
+
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
