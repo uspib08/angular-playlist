@@ -29,6 +29,10 @@ app.get('/affichePlay/:id', function(req, res){
     res.json(b1.afficherListePlaylist(req.params.id));
 });
 
+app.get('/afficheToutesPlay/', function(req, res){
+    res.json(b1.afficherToutePlaylist());
+});
+
 app.put('/ajouterMorc/:id/:titre/:artiste', function(req, res){
     b1.ajouterMorceauPlaylist(req.params.id, req.params.titre, req.params.artiste);
     res.json(b1.afficherListePlaylist(req.params.id));
