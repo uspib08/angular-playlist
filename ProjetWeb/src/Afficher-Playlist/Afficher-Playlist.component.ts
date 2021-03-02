@@ -1,3 +1,5 @@
+import { PlayList } from './../app/PlayList';
+import { ApiMusiqueService } from './../app/apiMusique.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AfficherPlaylistComponent implements OnInit {
 
-  constructor() { }
+  public playlist : PlayList = new PlayList();
+  constructor(private apimusique:  ApiMusiqueService) { }
 
   ngOnInit() {
   }
+
+  // public afficherListPlaylist(){
+  //   this.apimusique.afficherPlaylist();
+  // }
 
 }

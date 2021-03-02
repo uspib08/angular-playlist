@@ -21,6 +21,7 @@ export class ApiMusiqueService {
     return this.httpclient.get<PlayList>(this.url+id);
   }
 
+
   public ajouterMorceau(id : number, titre : string, artiste : string){
     this.httpclient.put(this.url+"ajouterMorc/"+ id +"/"+titre+"/"+artiste, { title: 'Angular POST Request Example2' })
     .subscribe((response)=> {console.log(response);},

@@ -7,6 +7,15 @@ let b1 = new banquePlaylist();
 
 app.use(express.json())
 
+app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods",
+        "GET, POST, PUT, DELETE, OPTIONS");
+    next();
+});
+
 app.post('/creerPlay/:nom/:createur/:style', function(req,res) {
     // var objres = b1.creerPlaylist(req.params.nom, req.params.createur, req.params.style);
     b1.creerPlaylist(req.params.nom, req.params.createur, req.params.style);
@@ -18,6 +27,10 @@ app.post('/creerPlay/:nom/:createur/:style', function(req,res) {
 
 app.get('/affichePlay/:id', function(req, res){
     res.json(b1.afficherListePlaylist(req.params.id));
+});
+
+app.get('/afficheToutesPlay/', function(req, res){
+    res.json(b1.afficherToutePlaylist());
 });
 
 app.put('/ajouterMorc/:id/:titre/:artiste', function(req, res){

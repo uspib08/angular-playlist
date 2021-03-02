@@ -12,3 +12,4 @@ b.ajouterMorceauPlaylist(1, 'titre', 'artiste');
 console.log(b.afficherListePlaylist(1));
 b.ajouterContributeurPlaylist(1,'monContri');
 console.log(b.afficherListePlaylist(1));
+console.log(b.afficherToutePlaylist());
