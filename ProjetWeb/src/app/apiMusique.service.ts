@@ -11,7 +11,7 @@ export class ApiMusiqueService {
   constructor(private httpclient : HttpClient) { }
 
   public creerPlaylist(nom : string, createur: string, style:string){
-    this.httpclient.post(this.url+nom+"/"+createur+"/"+style,{ title: 'Angular POST Request Example' })
+    this.httpclient.post(this.url+"creerPlay/"+nom+"/"+createur+"/"+style,{ title: 'Angular POST Request Example' })
     .subscribe((response)=> {console.log(response);},
       (error)=>{console.log("erreur ajoutée");}
     )
@@ -24,6 +24,7 @@ export class ApiMusiqueService {
     console.log(this.url+"afficheToutesPlay");
     return this.httpclient.get<PlayList>(this.url+"afficheToutesPlay");
   }
+
 
   public ajouterMorceau(id : number, titre : string, artiste : string){
     this.httpclient.put(this.url+"ajouterMorc/"+ id +"/"+titre+"/"+artiste, { title: 'Angular POST Request Example2' })
