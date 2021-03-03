@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiMusiqueService } from '../apiMusique.service';
 import { PlayList } from '../PlayList';
 
@@ -9,13 +10,15 @@ import { PlayList } from '../PlayList';
 })
 export class ListerPlaylistComponent implements OnInit {
   public playlist : PlayList = new PlayList();
-  public listPlaylist : Array<PlayList>;
+  public listPlaylist : any;
 
 
 
 
-  constructor(private apimusique:  ApiMusiqueService) {
-    this.listPlaylist= new Array<PlayList>();
+  constructor(private apimusique:  ApiMusiqueService,
+              private router : Router,
+              private routeactive: ActivatedRoute) {
+    // this.listPlaylist= new Array<any>();
 
   }
 
@@ -24,13 +27,18 @@ export class ListerPlaylistComponent implements OnInit {
 
 
   public afficherListPlaylist(){
-    this.apimusique.afficherToutePlaylist().subscribe((response) => {this.listPlaylist.push(response)},
+    this.apimusique.afficherToutePlaylist().subscribe((response) => {this.listPlaylist = response},
    (error)=>{console.log("Erreur d'affichage playlist : " +error)});
    console.log(this.listPlaylist);
   //  for(let p in this.listPlaylist){
   //    console.log(this.listPlaylist[p]._nom);
   //  }
 
+
+   }
+   public viewPlaylist(){
+      console.log("ça marche");
+      this.router.navigate(['lister/afficher']);
 
    }
 }

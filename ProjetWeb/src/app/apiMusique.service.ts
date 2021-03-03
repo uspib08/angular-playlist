@@ -18,7 +18,7 @@ export class ApiMusiqueService {
   }
 
   public afficherPlaylist(id : number) : Observable<PlayList>{
-    return this.httpclient.get<PlayList>(this.url+id);
+    return this.httpclient.get<PlayList>(this.url+"affichePlay/"+id);
   }
   public afficherToutePlaylist(){
     console.log(this.url+"afficheToutesPlay");

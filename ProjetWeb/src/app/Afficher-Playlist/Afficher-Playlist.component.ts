@@ -9,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AfficherPlaylistComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiMusique : ApiMusiqueService) { }
 
   ngOnInit() {
   }
+
+  public afficher(){
+    this.apiMusique.afficherPlaylist(1).subscribe((response) => {console.log(response)},
+   (error)=>{console.log("Erreur d'affichage playlist : " +error)});
+
+   }
+
+
 
 
 

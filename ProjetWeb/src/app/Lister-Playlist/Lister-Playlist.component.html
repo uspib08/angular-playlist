@@ -6,15 +6,17 @@
       <th>#</th>
       <th>Nom</th>
       <th>Créateur</th>
+      <th>Style</th>
       <th>Nombre de cliques</th>
     </tr>
   </thead>
 
   <tbody>
-    <tr *ngFor="let play of listPlaylist; index as i">
-      <th>{{ i + 1 }}</th>
+    <tr *ngFor="let play of listPlaylist; index as i"  (click)="viewPlaylist()">
+      <th >{{ i + 1 }}</th>
       <th>{{ play._nom }}</th>
       <th>{{ play._createur }}</th>
+      <th>{{ play._style }}</th>
       <th>{{ play._nbclicks }}</th>
     </tr>
   </tbody>
