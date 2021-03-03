@@ -1,2 +1,22 @@
 <p>Liste des morceaux</p>
 
+
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Artiste</th>
+      <th>Titre</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let m of this.liste; let i=index">
+      <td >{{i+1}}</td>
+      <td >{{m._artiste}}</td>
+      <td >{{m._titre}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
