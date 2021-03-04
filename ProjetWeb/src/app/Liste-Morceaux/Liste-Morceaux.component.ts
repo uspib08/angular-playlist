@@ -1,3 +1,4 @@
+import { Morceau } from './../Morceau';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeMorceauxComponent implements OnInit {
 
-  constructor() { }
+  public liste: any;
+  public m: Morceau = new Morceau();
+
+  constructor() {
+    this.liste = new Array();
+  }
 
   ngOnInit() {
+
+    this.m._titre = 'OKLM';
+    this.m._artiste = 'BOOBA'
+    this.liste.push(this.m);
+
   }
 
 }
