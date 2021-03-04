@@ -18,7 +18,7 @@ export class ListeMorceauxComponent implements OnInit {
   ngOnInit() {
 
     this.m._titre = 'OKLM';
-    this.m._artiste = 'BOOBA'
+    this.m._artiste = 'BOOBA';
     this.liste.push(this.m);
 
   }

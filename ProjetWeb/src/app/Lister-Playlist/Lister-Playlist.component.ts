@@ -37,8 +37,6 @@ export class ListerPlaylistComponent implements OnInit {
    (error)=>{console.log("Erreur d'affichage playlist : " +error)});
    console.log(this.listPlaylist);
 
-
-
    }
    public viewPlaylist(id : number){
       this.dataservice.noindex = id;
