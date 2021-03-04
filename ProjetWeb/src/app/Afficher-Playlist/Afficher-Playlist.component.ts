@@ -1,3 +1,4 @@
+import { DataService } from './../DataService';
 import { PlayList } from '../PlayList';
 import { ApiMusiqueService } from '../apiMusique.service';
 import { Component, OnInit } from '@angular/core';
@@ -8,15 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./Afficher-Playlist.component.css']
 })
 export class AfficherPlaylistComponent implements OnInit {
+  public Playlist : PlayList;
 
-  constructor(private apiMusique : ApiMusiqueService) { }
+  constructor(private apiMusique : ApiMusiqueService, public dataservice : DataService) {
+    this.Playlist = new PlayList();
+  }
 
   ngOnInit() {
+    this.apiMusique.afficherPlaylist(this.dataservice.noindex).subscribe((response) => {this.Playlist = response},
+    (error)=>{console.log("Erreur d'affichage playlist : " +error)});
+    console.log(this.Playlist._nom);
   }
 
   public afficher(){
-    this.apiMusique.afficherPlaylist(1).subscribe((response) => {console.log(response)},
-   (error)=>{console.log("Erreur d'affichage playlist : " +error)});
 
    }
 

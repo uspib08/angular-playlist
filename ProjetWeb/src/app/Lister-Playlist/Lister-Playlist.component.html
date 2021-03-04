@@ -12,12 +12,13 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let play of listPlaylist; index as i"  (click)="viewPlaylist()">
-      <th >{{ i + 1 }}</th>
+    <tr *ngFor="let play of listPlaylist; index as i">
+      <th>{{ i + 1 }}</th>
       <th>{{ play._nom }}</th>
       <th>{{ play._createur }}</th>
       <th>{{ play._style }}</th>
       <th>{{ play._nbclicks }}</th>
+      <button routerLink="afficher" (click)="viewPlaylist(i)">voir</button>
     </tr>
   </tbody>
 </table>

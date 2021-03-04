@@ -1,3 +1,4 @@
+import { DataService } from './DataService';
 import { AjouterPlaylistComponent } from './Ajouter-playlist/Ajouter-playlist.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -35,7 +36,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
   ],
-  providers: [ApiMusiqueService],
+  providers: [ApiMusiqueService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
