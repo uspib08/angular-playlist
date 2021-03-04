@@ -6,6 +6,7 @@
       <th>#</th>
       <th>Nom</th>
       <th>Créateur</th>
+      <th>Style</th>
       <th>Nombre de cliques</th>
     </tr>
   </thead>
@@ -15,7 +16,9 @@
       <th>{{ i + 1 }}</th>
       <th>{{ play._nom }}</th>
       <th>{{ play._createur }}</th>
+      <th>{{ play._style }}</th>
       <th>{{ play._nbclicks }}</th>
+      <button routerLink="afficher" (click)="viewPlaylist(i)">voir</button>
     </tr>
   </tbody>
 </table>

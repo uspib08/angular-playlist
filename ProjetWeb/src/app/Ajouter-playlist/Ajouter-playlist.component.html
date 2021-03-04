@@ -68,27 +68,27 @@
         <img src="assets/logoMusiq.jpg" class="img-fluid" alt="">
       </div>
       <div class="col-xl-7">
-        <form>
+        <!-- <form> -->
           <div class="form-row">
             <div class="col-xl-7 px-5 pt-5">
               <label for="Nom">Nom : </label>
-              <input type="text" class="form-control" id="nom" placeholder="Entrer un nom de Playlist">
+              <input type="text" class="form-control" id="nom" placeholder="Entrer un nom de Playlist" [(ngModel)]="name">
             </div>
             <div class="col-lg-7 px-5 pt-5">
               <label for="Nom">Créateur : </label>
-              <input type="text" class="form-control" id="crea" placeholder="Entrer votre nom de créateur">
+              <input type="text" class="form-control" id="crea" placeholder="Entrer votre nom de créateur" [(ngModel)]="createur">
             </div>
             <div class="col-lg-7 px-5 pt-5">
-              <label for="Nom">Nom : </label>
-              <input type="text" class="form-control" id="sty" placeholder="Entrer le style de votre Playlist">
+              <label for="Nom">Style : </label>
+              <input type="text" class="form-control" id="sty" placeholder="Entrer le style de votre Playlist" [(ngModel)]="style">
             </div>
 
             <div class="col-lg-7 px-5 pt-5">
-              <button class="btn" type="submit">Créer</button>
+              <button class="btn" (click)="ajouterPlaylist(name,createur,style)">Créer</button>
             </div>
 
           </div>
-        </form>
+        <!-- </form> -->
     </div>
 </div>
 </div>

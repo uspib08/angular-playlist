@@ -1,3 +1,4 @@
+import { DataService } from './DataService';
 import { AjouterPlaylistComponent } from './Ajouter-playlist/Ajouter-playlist.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,7 @@ import { from } from 'rxjs';
 import { ListerPlaylistComponent } from './Lister-Playlist/Lister-Playlist.component';
 import { AfficherPlaylistComponent } from './Afficher-Playlist/Afficher-Playlist.component';
 import { ListeMorceauxComponent } from './Liste-Morceaux/Liste-Morceaux.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const appRoutes: Routes = [
   {path: 'ajouter', component : AjouterPlaylistComponent},
@@ -34,8 +36,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     HttpClientModule,
+    NgbModule
   ],
-  providers: [ApiMusiqueService],
+  providers: [ApiMusiqueService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
