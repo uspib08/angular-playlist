@@ -15,6 +15,7 @@ module.exports = class banquePlaylist{
     }
 
     afficherListePlaylist(id){
+        this.listPlaylist[id].incrementerNbclicks();
         return this.listPlaylist[id];
     }
     afficherToutePlaylist(){

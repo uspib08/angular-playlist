@@ -25,6 +25,10 @@ module.exports = class Playlist{
         }
     }
 
+    incrementerNbclicks(){
+        this._nbclicks++;
+    }
+
     ajouterContributeur(contri){
         _listContributeurs.push(contri);
     }
