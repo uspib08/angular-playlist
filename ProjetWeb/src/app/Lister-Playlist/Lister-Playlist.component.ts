@@ -24,6 +24,9 @@ export class ListerPlaylistComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.apimusique.afficherToutePlaylist().subscribe((response) => {this.listPlaylist = response},
+    (error)=>{console.log("Erreur d'affichage playlist : " +error)});
+    console.log(this.listPlaylist);
   }
 
   // ngOnDestroy(){
@@ -32,12 +35,6 @@ export class ListerPlaylistComponent implements OnInit {
   // }
 
 
-  public afficherListPlaylist(){
-    this.apimusique.afficherToutePlaylist().subscribe((response) => {this.listPlaylist = response},
-   (error)=>{console.log("Erreur d'affichage playlist : " +error)});
-   console.log(this.listPlaylist);
-
-   }
    public viewPlaylist(id : number){
       this.dataservice.noindex = id;
       console.log(this.dataservice.noindex);
