@@ -1,26 +1,50 @@
-<p>Liste des playlists</p>
+<style>
+  .btn{
+        border: none;
+        outline: none;
+        height: 40px;
+        width: 50%;
+        background-color: rgb(19, 95, 196);
+        color: white;
+        border-radius: 20px;
+        font-weight: bold;
+        box-shadow: 1px 2px 5px #000000;
 
-<table class="table table-dark table-striped">
-  <thead>
+      }
+
+      .btn:hover{
+        background: rgb(36, 144, 194);
+        border: 1px;
+      }
+
+    * {
+        padding: 2px;
+        margin: 2px;
+      }
+</style>
+<p>Liste des playlists</p>
+<div class="table-responsive">
+<table class="table table-light table-striped table-bordered table-hover">
+  <thead class="thead-dark">
     <tr>
-      <th>#</th>
+      <th>Numero</th>
       <th>Nom</th>
       <th>Créateur</th>
       <th>Style</th>
-      <th>Nombre de cliques</th>
+      <th>Nombre de clicks</th>
+      <th>Visualisation</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="thead-secondary">
     <tr *ngFor="let play of listPlaylist; index as i">
       <th>{{ i + 1 }}</th>
       <th>{{ play._nom }}</th>
       <th>{{ play._createur }}</th>
       <th>{{ play._style }}</th>
       <th>{{ play._nbclicks }}</th>
-      <button routerLink="afficher" (click)="viewPlaylist(i)">voir</button>
+      <th><button class="btn" routerLink="afficher"  (click)="viewPlaylist(i) ">voir</button></th>
     </tr>
   </tbody>
 </table>
-
-<button (click)="afficherListPlaylist()">test</button>
+</div>

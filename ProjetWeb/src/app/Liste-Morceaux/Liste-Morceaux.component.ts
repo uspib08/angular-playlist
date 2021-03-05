@@ -17,10 +17,15 @@ export class ListeMorceauxComponent implements OnInit {
 
   ngOnInit() {
 
-    this.m._titre = 'OKLM';
-    this.m._artiste = 'BOOBA'
-    this.liste.push(this.m);
 
+
+  }
+
+  ajouter(artiste:string, titre:string){
+    const m2 = new Morceau();
+    m2._artiste = artiste;
+    m2._titre = titre
+    this.liste.push(m2);
   }
 
 }

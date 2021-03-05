@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ApiMusiqueService } from './../apiMusique.service';
 import { Component, OnInit } from '@angular/core';
 import { PlayList } from '../PlayList';
@@ -12,8 +13,9 @@ export class AjouterPlaylistComponent implements OnInit {
   public name : string="";
   public createur : string="";
   public style : string="";
+  public bool : number=0;
 
-  constructor(private apiMusique : ApiMusiqueService) { }
+  constructor(private apiMusique : ApiMusiqueService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,6 +23,8 @@ export class AjouterPlaylistComponent implements OnInit {
   ajouterPlaylist(nom : string, createur :string, style : string){
     this.apiMusique.creerPlaylist(nom, createur, style);
     console.log(this.apiMusique.afficherToutePlaylist());
+    this.bool=1;
+    console.log(this.bool);
   }
 
 }

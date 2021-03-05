@@ -1,0 +1,21 @@
+<div class="col-xl-7">
+  <!-- <form> -->
+
+
+
+    </div>
+  <!-- </form> -->
+
+<div class="row">
+  <div class="col-sm-5 px-5 pt-5">
+    <label for="Nom">Titre : </label>
+    <input type="text" class="form-control" id="nom" placeholder="Entrer le titre" [(ngModel)]="nom">
+  </div>
+  <div class="col-sm-5 px-5 pt-5">
+    <label for="Nom">Artiste : </label>
+    <input type="text" class="form-control" id="crea" placeholder="Entrer le nom de l'Artiste" [(ngModel)]="createur" >
+  </div>
+</div>
+<div class="col offset-1 col-sm-7 px-5 pt-5">
+  <button class="btn btn-outline-secondary" (click)="ajouterMorceaux(nom, createur)">Créer</button>
+</div>

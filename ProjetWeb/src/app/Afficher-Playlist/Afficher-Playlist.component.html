@@ -5,4 +5,12 @@
 <h3>Réalisée par {{Playlist._createur}}</h3>
 <p>{{Playlist._nbclicks}}</p>
 
+<tbody>
+  <tr *ngFor="let play of Playlist._listMorceaux; index as i">
+    <th>{{ i + 1 }}</th>
+    <th>{{ play._titre }}</th>
+    <th>{{ play._artiste }}</th>
+  </tr>
+</tbody>
+
 <!-- <button (click)="afficher()">ceci est ZE bouton</button> -->
