@@ -16,6 +16,10 @@
     <input type="text" class="form-control" id="crea" placeholder="Entrer le nom de l'Artiste" [(ngModel)]="createur" >
   </div>
 </div>
+<br>
+<div class="row">
+  <button class="btn btn-outline-secondary col offset-1 col-sm-4" (click)="ajouterMorceaux(nom, createur)">Ajouter Morceau</button>
+  <button class="btn btn-outline-primary col offset-1 col-sm-4" routerLink="lister">Enregistrer</button>
+</div>
 <div class="col offset-1 col-sm-7 px-5 pt-5">
-  <button class="btn btn-outline-secondary" (click)="ajouterMorceaux(nom, createur)">Créer</button>
 </div>
