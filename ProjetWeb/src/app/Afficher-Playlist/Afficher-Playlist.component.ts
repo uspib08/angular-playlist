@@ -10,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AfficherPlaylistComponent implements OnInit {
   public Playlist : PlayList;
+  public test:number=0;
 
   constructor(private apiMusique : ApiMusiqueService, public dataservice : DataService) {
     this.Playlist = new PlayList();
+
   }
 
   ngOnInit() {
@@ -21,9 +23,12 @@ export class AfficherPlaylistComponent implements OnInit {
     console.log(this.Playlist._nom);
   }
 
-  public afficher(){
+  incrementer(){
+    this.test = 1;
+  }
 
-   }
+
+
 
 
 

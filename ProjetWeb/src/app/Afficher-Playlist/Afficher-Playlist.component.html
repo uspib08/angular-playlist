@@ -1,16 +1,39 @@
 <br>
-<p>ceci est un putain de test</p>
+<head>
+  <link rel="stylesheet" href="Afficher-Playlist.component.css">
+</head>
+<body>
+  <h1>{{Playlist._nom}}</h1>
+  <h3>Réalisée par {{Playlist._createur}}</h3>
+  <p>{{Playlist._nbclicks}}</p>
+  <button class="btn btn-outline-dark col-sm-2 offset-6"(click)="incrementer()">ajouter une proposition</button>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="container">
+        <table>
+          <thead class="tbl-header">
+            <tr>
+              <th>index</th>
+              <th>titre</th>
+              <th>artiste</th>
+            </tr>
+          </thead>
+          <tbody class="tbl-content">
+            <tr *ngFor="let play of Playlist._listMorceaux; index as i">
+              <td>{{ i + 1 }}</td>
+              <td>{{ play._titre }}</td>
+              <td>{{ play._artiste }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="test==1">
+      <app-Liste-Morceaux class="col-sm-6"></app-Liste-Morceaux>
+    </div>
+  </div>
+</body>
 
-<h1>{{Playlist._nom}}</h1>
-<h3>Réalisée par {{Playlist._createur}}</h3>
-<p>{{Playlist._nbclicks}}</p>
 
-<tbody>
-  <tr *ngFor="let play of Playlist._listMorceaux; index as i">
-    <th>{{ i + 1 }}</th>
-    <th>{{ play._titre }}</th>
-    <th>{{ play._artiste }}</th>
-  </tr>
-</tbody>
 
 <!-- <button (click)="afficher()">ceci est ZE bouton</button> -->
