@@ -39,7 +39,7 @@
   </thead>
 
   <tbody class="thead-secondary">
-    <tr *ngFor="let play of listPlaylist; index as i">
+    <tr *ngFor="let play of listPlaylist | filter:searchText ; index as i ">
       <th>{{ i + 1 }}</th>
       <th>{{ play._nom }}</th>
       <th>{{ play._createur }}</th>
@@ -50,3 +50,6 @@
   </tbody>
 </table>
 </div>
+<button (click)="style('test')">oui</button>
+<input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+
