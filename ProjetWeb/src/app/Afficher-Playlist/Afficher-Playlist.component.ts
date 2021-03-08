@@ -27,6 +27,12 @@ export class AfficherPlaylistComponent implements OnInit {
     this.test = 1;
   }
 
+  recupEvt(s : string){
+    this.apiMusique.afficherPlaylist(this.dataservice.noindex).subscribe((response) => {this.Playlist = response},
+    (error)=>{console.log("Erreur d'affichage playlist : " +error)});
+    console.log(this.Playlist._nom);
+  }
+
 
 
 

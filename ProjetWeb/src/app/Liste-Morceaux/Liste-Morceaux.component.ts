@@ -19,6 +19,9 @@ export class ListeMorceauxComponent implements OnInit {
     this.liste = new Array();
   }
 
+  @Output() emetteur = new EventEmitter<string>();
+
+
   ngOnInit() {
   }
 
@@ -32,9 +35,13 @@ export class ListeMorceauxComponent implements OnInit {
   envoyer(tit:string, art:string){
     console.log(tit+"/"+art);
     console.log(this.dataservice.noindex);
+    this.emetteur.emit("envoie");
 
 
     this.apimusique.ajouterMorceau(this.dataservice.noindex,tit,art);
   }
+
+
+
 
 }
