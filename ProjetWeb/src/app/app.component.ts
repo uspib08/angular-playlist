@@ -11,9 +11,6 @@ export class AppComponent {
   @Output()
   selected: EventEmitter<string> = new EventEmitter<string>();
 
-  select(){
-    this.selected.emit("yes");
-  }
 
 }
 
