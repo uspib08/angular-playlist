@@ -1,12 +1,14 @@
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DataService } from './../DataService';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiMusiqueService } from '../apiMusique.service';
 import { PlayList } from '../PlayList';
+import { Console } from 'node:console';
 
 @Component({
   selector: 'app-Lister-Playlist',
+
   templateUrl: './Lister-Playlist.component.html',
   styleUrls: ['./Lister-Playlist.component.css']
 })
@@ -15,9 +17,13 @@ export class ListerPlaylistComponent implements OnInit {
   public test : any;
   public listPlaylist : any;
   public noindex: number=0;
+
+
+
   public laliste : any;
   public sty : string="";
   public searchText: any;
+
 
 
 
@@ -30,6 +36,7 @@ export class ListerPlaylistComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dataservice.currentSearch.subscribe(message => this.searchText=message)
     this.apimusique.afficherToutePlaylist().subscribe((response) => {this.listPlaylist = response},
     (error)=>{console.log("Erreur d'affichage playlist : " +error)});
     console.log(this.listPlaylist);

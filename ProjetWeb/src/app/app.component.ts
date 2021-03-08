@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { DataService } from './DataService';
+
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +9,22 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class AppComponent {
   title = 'ProjetWeb';
+  public searchStr:string | undefined;
 
-  @Output()
-  selected: EventEmitter<string> = new EventEmitter<string>();
+constructor(private data:DataService) {
+
+}
+
+  ngOnInit(): void {
+    this.data.currentSearch.subscribe(message => this.searchStr=message)
+  }
+
+
+  recherche(str : string){
+    this.searchStr=str;
+    console.log("str "+str);
+    this.data.changeSearch(str);
+  }
 
 
 }

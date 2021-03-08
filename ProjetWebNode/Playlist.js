@@ -3,6 +3,8 @@ const Morceau = require('./Morceau');
 // var _listContributeurs = {};
 
 
+var _listMorceaux;
+var _listContributeurs;
 module.exports = class Playlist{
     constructor(nom, createur, style){
         this._nom = nom;
@@ -14,12 +16,12 @@ module.exports = class Playlist{
     }
 
     ajouterMorceau(titre, artiste){
-        this._listMorceaux.push(new Morceau(titre, artiste));
+        _listMorceaux.push(new Morceau(titre, artiste));
     }
 
     retirerMorceau(morceau){
-        if(this._listMorceaux.indexOf(morceau)!=-1){
-            this._listMorceaux.splice(0, this._listMorceaux.indexOf(morceau));
+        if(_listMorceaux.indexOf(morceau)!=-1){
+            _listMorceaux.splice(0, _listMorceaux.indexOf(morceau));
         }
     }
 
@@ -28,7 +30,7 @@ module.exports = class Playlist{
     }
 
     ajouterContributeur(contri){
-        this._listContributeurs.push(contri);
+        _listContributeurs.push(contri);
     }
 
     get listMorceaux(){
