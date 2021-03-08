@@ -1,3 +1,4 @@
+import { DataService } from './../DataService';
 import { ApiMusiqueService } from './../apiMusique.service';
 import { Morceau } from './../Morceau';
 import { Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output } from '@angular/core';
@@ -13,7 +14,8 @@ export class ListeMorceauxComponent implements OnInit {
   public m: Morceau = new Morceau();
 
 
-  constructor(private apimusique:ApiMusiqueService) {
+  constructor(private apimusique:ApiMusiqueService,
+              private dataservice : DataService) {
     this.liste = new Array();
   }
 
@@ -29,8 +31,10 @@ export class ListeMorceauxComponent implements OnInit {
   }
   envoyer(tit:string, art:string){
     console.log(tit+"/"+art);
+    console.log(this.dataservice.noindex);
 
-    this.apimusique.ajouterMorceau(0,tit,art);
+
+    this.apimusique.ajouterMorceau(this.dataservice.noindex,tit,art);
   }
 
 }
