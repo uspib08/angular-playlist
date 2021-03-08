@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { ApiMusiqueService } from './apiMusique.service';
 import { RouterModule, Routes } from '@angular/router';
 // import { AppRoutingModule } from './app-routing.module';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    Ng2SearchPipeModule,
   ],
   providers: [ApiMusiqueService, DataService],
   bootstrap: [AppComponent]
