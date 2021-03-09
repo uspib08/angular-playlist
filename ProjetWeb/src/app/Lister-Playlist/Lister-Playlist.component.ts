@@ -4,7 +4,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiMusiqueService } from '../apiMusique.service';
 import { PlayList } from '../PlayList';
-import { Console } from 'node:console';
 
 @Component({
   selector: 'app-Lister-Playlist',

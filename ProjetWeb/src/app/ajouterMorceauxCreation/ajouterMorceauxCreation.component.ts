@@ -25,6 +25,8 @@ export class AjouterMorceauxCreationComponent implements OnInit {
   ajouterMorceaux(titre:string, artiste:string){
 
     console.log(this.listePlay.length);
+    console.log(titre +  artiste);
+
     if(this.listePlay.length==0){
       this.apiMusique.ajouterMorceau(0, titre ,artiste);
     }else{

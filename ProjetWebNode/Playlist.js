@@ -16,12 +16,12 @@ module.exports = class Playlist{
     }
 
     ajouterMorceau(titre, artiste){
-        _listMorceaux.push(new Morceau(titre, artiste));
+        this._listMorceaux.push(new Morceau(titre, artiste));
     }
 
     retirerMorceau(morceau){
         if(_listMorceaux.indexOf(morceau)!=-1){
-            _listMorceaux.splice(0, _listMorceaux.indexOf(morceau));
+            this._listMorceaux.splice(0, _listMorceaux.indexOf(morceau));
         }
     }
 
@@ -30,7 +30,7 @@ module.exports = class Playlist{
     }
 
     ajouterContributeur(contri){
-        _listContributeurs.push(contri);
+        this._listContributeurs.push(contri);
     }
 
     get listMorceaux(){
