@@ -33,7 +33,8 @@
               "node_modules/bootstrap/scss/bootstrap-grid.scss",
               "node_modules/bootstrap/scss/bootstrap-reboot.scss"
             ],
-            "scripts": []
+
+            "scripts": ["src/app/Lister-Playlist/sort-table.js"]
           },
           "configurations": {
             "production": {

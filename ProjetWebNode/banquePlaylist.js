@@ -15,7 +15,7 @@ module.exports = class banquePlaylist{
     }
 
     afficherListePlaylist(id){
-        this.listPlaylist[id].incrementerNbclicks();
+       this.listPlaylist[id].incrementerNbclicks();
         return this.listPlaylist[id];
     }
     afficherToutePlaylist(){
@@ -29,6 +29,9 @@ module.exports = class banquePlaylist{
     ajouterContributeurPlaylist(id, contri){
         this.listPlaylist[id].ajouterContributeur(contri);
 
+    }
+    supprimerPlaylist(id){
+        this.listPlaylist.splice(id,1);
     }
 
     get play(){

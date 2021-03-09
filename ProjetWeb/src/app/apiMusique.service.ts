@@ -40,4 +40,11 @@ export class ApiMusiqueService {
     );
   }
 
+  public supprimerPlaylist(id : number){
+    this.httpclient.delete(this.url+"supprimer/"+id)
+    .subscribe((response)=> {console.log(response);},
+      (error)=>{console.log("erreur ajoutée");}
+    )
+  }
+
 }

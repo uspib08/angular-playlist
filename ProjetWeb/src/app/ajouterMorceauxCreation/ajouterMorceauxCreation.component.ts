@@ -12,6 +12,7 @@ export class AjouterMorceauxCreationComponent implements OnInit {
   public listePlay : any;
   public nom : string="";
   public createur : string = "";
+  public numero :number=0;
 
   constructor(private apiMusique: ApiMusiqueService) {
   }
