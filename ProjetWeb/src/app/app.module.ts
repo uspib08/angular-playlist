@@ -14,6 +14,7 @@ import { AfficherPlaylistComponent } from './Afficher-Playlist/Afficher-Playlist
 import { ListeMorceauxComponent } from './Liste-Morceaux/Liste-Morceaux.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AjouterMorceauxCreationComponent } from './ajouterMorceauxCreation/ajouterMorceauxCreation.component';
+import { ListeStyleBoutonComponent } from './Liste-Style-Bouton/Liste-Style-Bouton.component';
 
 const appRoutes: Routes = [
   {path: 'ajouter', component : AjouterPlaylistComponent},
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   {path: 'lister', component : ListerPlaylistComponent},
   {path: 'lister/afficher', component : AfficherPlaylistComponent},
   {path: 'lister/propositions', component : ListeMorceauxComponent},
+  {path: 'lister/liste', component : ListeStyleBoutonComponent},
   {path: '', redirectTo: 'lister', pathMatch: 'full'},
   {path: '**', redirectTo: 'lister'}
 
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
       ListerPlaylistComponent,
       AfficherPlaylistComponent,
       ListeMorceauxComponent,
-      AjouterMorceauxCreationComponent
+      AjouterMorceauxCreationComponent,
+      ListeStyleBoutonComponent
    ],
   imports: [
     BrowserModule,
