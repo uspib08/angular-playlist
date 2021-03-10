@@ -3,6 +3,7 @@
   <link rel="stylesheet" href="Afficher-Playlist.component.css">
 </head>
 <body>
+  <p></p>
   <h1>{{Playlist._nom}}</h1>
   <h3>Réalisée par {{Playlist._createur}}</h3>
   <p>{{Playlist._nbclicks}}</p>
@@ -29,7 +30,7 @@
       </div>
     </div>
     <div *ngIf="test==1">
-      <app-Liste-Morceaux class="col-sm-6"></app-Liste-Morceaux>
+      <app-Liste-Morceaux (emetteur)="recupEvt($event)" class="col-sm-6"></app-Liste-Morceaux>
     </div>
   </div>
 </body>

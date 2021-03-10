@@ -23,7 +23,7 @@
     <p id="ajout">Ajouter une playlist</p>
     <ul class="navbar-nav mr-auto">
       <!-- < class="nav-item active">
-        <!-- <a class="nav-link" href="/ajouter">Ajouter <span class="sr-only">(current)</span></a> -->
+         <a class="nav-link" href="/ajouter">Ajouter <span class="sr-only">(current)</span></a> -->
         <!-- <a class="nav-link" >Créer une playlist<button type="button" routerLink="ajouter" class="btn btn-warning">+</button></a> -->
         <!-- <a href="#"></a>
         <span></span>
@@ -43,10 +43,9 @@
       </li>
     </ul>
   </div>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <input [ngModel]="searchStr" (ngModelChange)="recherche($event)" class="form-control mr-sm-2" type="search" placeholder="Search PlayList or Style" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
+
 </nav>
 <br><br><br><br><br>
 
@@ -56,5 +55,3 @@
 
 </body> -->
 <router-outlet></router-outlet>
-
-

@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { ApiMusiqueService } from './apiMusique.service';
 import { RouterModule, Routes } from '@angular/router';
 // import { AppRoutingModule } from './app-routing.module';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +15,7 @@ import { AfficherPlaylistComponent } from './Afficher-Playlist/Afficher-Playlist
 import { ListeMorceauxComponent } from './Liste-Morceaux/Liste-Morceaux.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AjouterMorceauxCreationComponent } from './ajouterMorceauxCreation/ajouterMorceauxCreation.component';
-import { ListeStyleBoutonComponent } from './Liste-Style-Bouton/Liste-Style-Bouton.component';
+import { ListeStyleComponent } from './Liste-Style/Liste-Style.component';
 
 const appRoutes: Routes = [
   {path: 'ajouter', component : AjouterPlaylistComponent},
@@ -22,7 +23,6 @@ const appRoutes: Routes = [
   {path: 'lister', component : ListerPlaylistComponent},
   {path: 'lister/afficher', component : AfficherPlaylistComponent},
   {path: 'lister/propositions', component : ListeMorceauxComponent},
-  {path: 'lister/liste', component : ListeStyleBoutonComponent},
   {path: '', redirectTo: 'lister', pathMatch: 'full'},
   {path: '**', redirectTo: 'lister'}
 
@@ -38,14 +38,15 @@ const appRoutes: Routes = [
       AfficherPlaylistComponent,
       ListeMorceauxComponent,
       AjouterMorceauxCreationComponent,
-      ListeStyleBoutonComponent
+      ListeStyleComponent
    ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    Ng2SearchPipeModule,
   ],
   providers: [ApiMusiqueService, DataService],
   bootstrap: [AppComponent]

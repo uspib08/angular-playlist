@@ -22,30 +22,39 @@
         margin: 2px;
       }
 </style>
+<head>
+  <script type="text/javascript" src="sort-table.js"></script>
+</head>
 <br>
+<h1 hidden>{{searchText}}</h1>
 <p>Liste des playlists</p>
 <div class="table-responsive">
-<table class="table table-light table-striped table-bordered table-hover">
+<table class="js-sort-table table table-light table-striped table-bordered table-hover col-sm-10">
   <thead class="thead-dark">
     <tr>
-      <th>Numero</th>
-      <th>Nom</th>
-      <th>Créateur</th>
-      <th>Style</th>
-      <th>Nombre de clicks</th>
-      <th>Visualisation</th>
+      <th scope="col" class="js-sort-number">Numero</th>
+      <th scope="col" class="js-sort-string">Nom</th>
+      <th scope="col" class="js-sort-string">Créateur</th>
+      <th scope="col" class="js-sort-string">Style</th>
+      <th class="js-sort-number">Nombre de clicks</th>
+      <th class="js-sort-none">Supprimer</th>
+      <th class="js-sort-none">Visualisation</th>
     </tr>
   </thead>
 
   <tbody class="thead-secondary">
-    <tr *ngFor="let play of listPlaylist; index as i">
-      <th>{{ i + 1 }}</th>
-      <th>{{ play._nom }}</th>
-      <th>{{ play._createur }}</th>
-      <th>{{ play._style }}</th>
-      <th>{{ play._nbclicks }}</th>
-      <th><button class="btn" routerLink="afficher"  (click)="viewPlaylist(i) ">voir</button></th>
+    <tr *ngFor="let play of listPlaylist | filter:searchText ; index as i ">
+      <td>{{ i + 1 }}</td>
+      <td>{{ play._nom }}</td>
+      <td>{{ play._createur }}</td>
+      <td>{{ play._style}}</td>
+      <td>{{ play._nbclicks }}</td>
+      <td><button class="btn" (click)="supprimer(i)">supprimer</button></td>
+      <td><button class="btn" routerLink="afficher"  (click)="viewPlaylist(i) ">voir</button></td>
     </tr>
   </tbody>
 </table>
 </div>
+<!-- <button (click)="style('test')">oui</button> -->
+<input class="form-control" type="text" name="search" [(ngModel)]="searchText._nom" [(ngModel)]="searchText._style" autocomplete="off"  hidden>
+
