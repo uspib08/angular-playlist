@@ -15,6 +15,7 @@ import { AfficherPlaylistComponent } from './Afficher-Playlist/Afficher-Playlist
 import { ListeMorceauxComponent } from './Liste-Morceaux/Liste-Morceaux.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AjouterMorceauxCreationComponent } from './ajouterMorceauxCreation/ajouterMorceauxCreation.component';
+import { ListeStyleComponent } from './Liste-Style/Liste-Style.component';
 
 const appRoutes: Routes = [
   {path: 'ajouter', component : AjouterPlaylistComponent},
@@ -30,13 +31,14 @@ const appRoutes: Routes = [
   // {path: '**', redirectTo: 'nvcompte'}
 ]
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
       AjouterPlaylistComponent,
       ListerPlaylistComponent,
       AfficherPlaylistComponent,
       ListeMorceauxComponent,
-      AjouterMorceauxCreationComponent
+      AjouterMorceauxCreationComponent,
+      ListeStyleComponent
    ],
   imports: [
     BrowserModule,
