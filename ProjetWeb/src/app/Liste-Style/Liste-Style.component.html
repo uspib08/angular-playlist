@@ -1,9 +1,28 @@
-<p>
+<!-- <p>
   Liste-Style works!
-</p>
+</p> -->
 
-<select class="form-control" name="sel" >
+<!-- <select class="form-control" name="sel" >
 
   <option *ngFor="let dl of this.names" [value]="dl">{{dl}}</option>
 
-</select>
+</select> -->
+
+
+
+
+<div class=" col-md-2">
+  <ul class="nav nav-pills nav-stacked anyClass" id="coucou">
+    <li *ngFor = "let style of this.listPlaylist; index as i" class="nav-item" >
+      <a class="nav-link active" href="#" >{{style._style}}</a>
+    </li>
+
+   <!-- <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">   [(ngModel)]="oui[i]"
+      <a class="nav-link disabled" href="#">Disabled</a>
+    </li>-->
+  </ul>
+</div>
+<button (click)="tester()">test</button>
