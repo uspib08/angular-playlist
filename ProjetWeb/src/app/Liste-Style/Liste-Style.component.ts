@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { ApiMusiqueService } from '../apiMusique.service';
 
 @Component({
@@ -9,6 +9,8 @@ import { ApiMusiqueService } from '../apiMusique.service';
 export class ListeStyleComponent implements OnInit {
   public listPlaylist: any;
   public listStyle: any;
+  // @ViewChild('dummyClick') dummyClickRef: ElementRef;
+
 
   constructor(private apimusique: ApiMusiqueService) {
     this.listStyle = new Array();
@@ -28,7 +30,10 @@ export class ListeStyleComponent implements OnInit {
         console.log("Erreur d'affichage playlist : " + error);
       }
     );
+    this.tester();
+    console.log(this.listStyle);
 
+    // this.dummyClickRef.nativeElement.click()
   }
 
   tester() {
@@ -37,10 +42,15 @@ export class ListeStyleComponent implements OnInit {
 
     this.listStyle = u?.split('\n');
     this.listStyle = uniqueArray3(this.listStyle);
+    this.listStyle.splice(0,1);
+    console.log("ici"+this.listStyle);
+
   }
 
   filtrer(style : string){
-    this.tester();
+    // this.tester();
+    console.log(this.listStyle);
+
     var listefiltree = new Array();
     for(let index=0; index<this.listPlaylist.length; index++){
       if(this.listPlaylist[index]._style == style){
