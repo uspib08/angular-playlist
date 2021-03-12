@@ -7,50 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-      *{
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-      }
-
-      section{
-        margin-top: 18px;
-        margin-bottom: auto;
-        background: rgb(146, 153, 153);
-        background-size: cover;
-        -webkit-background-size: cover;
-      }
-
-
-      .row{
-        background: white;
-        border-radius: 30px;
-      }
-
-      img{
-        border-top-left-radius: 30px;
-        border-bottom-left-radius: 30px;
-      }
-
-      .btn{
-        border: none;
-        outline: none;
-        height: 50px;
-        width: 100%;
-        background-color: rgb(7, 7, 22);
-        color: white;
-        border-radius: 4px;
-        font-weight: bold;
-
-      }
-
-      .btn:hover{
-        background: rgb(36, 144, 194);
-        border: 1px;
-      }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="Ajouter-playlist.component.scss">
 
   </head>
 
@@ -61,8 +18,11 @@
 
 <body>
 
-<section class="Form my-4 mx-2">
+<section class="Form my-4 mx-2 bg">
   <div class="container">
+    <br>
+    <br>
+    <br>
     <div class="row no-gutters">
       <div class="col-xl-5">
         <img src="assets/logoMusiq.jpg" class="img-fluid" alt="">
@@ -71,16 +31,22 @@
         <!-- <form> -->
           <div class="form-row">
             <div class="col-xl-7 px-5 pt-5">
-              <label for="Nom">Nom : </label>
-              <input type="text" class="form-control" id="nom" placeholder="Entrer un nom de Playlist" [(ngModel)]="name">
+              <div class="form__group field">
+                <input type="input" class="form__field" id="nom" placeholder="Entrer un nom de Playlist" [(ngModel)]="name" required />
+                <label for="Nom" class="form__label">Nom : </label>
+              </div>
             </div>
             <div class="col-lg-7 px-5 pt-5">
-              <label for="Nom">Créateur : </label>
-              <input type="text" class="form-control" id="crea" placeholder="Entrer votre nom de créateur" [(ngModel)]="createur">
+              <div class="form__group field">
+                <input type="input" class="form__field" id="crea" placeholder="Entrer votre nom de créateur" [(ngModel)]="createur" required />
+                <label for="Nom" class="form__label">Créateur : </label>
+              </div>
             </div>
             <div class="col-lg-7 px-5 pt-5">
-              <label for="Nom">Style : </label>
-              <input type="text" class="form-control" id="sty" placeholder="Entrer le style de votre Playlist" [(ngModel)]="style">
+              <div class="form__group field">
+                <input type="input" class="form__field" id="sty" placeholder="Entrer le style de votre Playlist" [(ngModel)]="style" required />
+                <label for="Nom" class="form__label">Style : </label>
+              </div>
             </div>
 
             <div class="col-lg-7 px-5 pt-5">

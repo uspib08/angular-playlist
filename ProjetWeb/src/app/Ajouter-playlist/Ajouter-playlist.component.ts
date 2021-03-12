@@ -7,7 +7,7 @@ import { PlayList } from '../PlayList';
 @Component({
   selector: 'app-Ajouter-playlist',
   templateUrl: './Ajouter-playlist.component.html',
-  styleUrls: ['./Ajouter-playlist.component.css']
+  styleUrls: ['./Ajouter-playlist.component.scss']
 })
 export class AjouterPlaylistComponent implements OnInit {
   public name : string="";
