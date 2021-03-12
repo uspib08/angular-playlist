@@ -1,0 +1,10 @@
+
+
+<br>
+
+<mat-tab-group  [disableRipple]="false">
+    <mat-tab  id="luti" label="{{tab._createur}}" *ngFor="let tab of this.listPlaylist">
+      {{tab._createur}}
+    </mat-tab>
+</mat-tab-group>
+<button (click)="recup()">test</button>

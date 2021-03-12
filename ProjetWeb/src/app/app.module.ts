@@ -1,3 +1,4 @@
+import { MatTabsModule } from '@angular/material/tabs';
 import { DataService } from './DataService';
 import { AjouterPlaylistComponent } from './Ajouter-playlist/Ajouter-playlist.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,6 +17,10 @@ import { ListeMorceauxComponent } from './Liste-Morceaux/Liste-Morceaux.componen
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AjouterMorceauxCreationComponent } from './ajouterMorceauxCreation/ajouterMorceauxCreation.component';
 import { ListeStyleComponent } from './Liste-Style/Liste-Style.component';
+import { ListeUtilisateurComponent } from './liste-utilisateur/liste-utilisateur.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+
 
 const appRoutes: Routes = [
   {path: 'ajouter', component : AjouterPlaylistComponent},
@@ -23,6 +28,7 @@ const appRoutes: Routes = [
   {path: 'lister', component : ListerPlaylistComponent},
   {path: 'lister/afficher', component : AfficherPlaylistComponent},
   {path: 'lister/propositions', component : ListeMorceauxComponent},
+  {path: 'test', component : ListeUtilisateurComponent},
   {path: '', redirectTo: 'lister', pathMatch: 'full'},
   {path: '**', redirectTo: 'lister'}
 
@@ -38,15 +44,17 @@ const appRoutes: Routes = [
       AfficherPlaylistComponent,
       ListeMorceauxComponent,
       AjouterMorceauxCreationComponent,
-      ListeStyleComponent
+      ListeStyleComponent,
+      ListeUtilisateurComponent
    ],
   imports: [
-    BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
     HttpClientModule,
     NgbModule,
     Ng2SearchPipeModule,
+    MatTabsModule,
+    BrowserAnimationsModule,
   ],
   providers: [ApiMusiqueService, DataService],
   bootstrap: [AppComponent]

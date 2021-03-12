@@ -1,0 +1,11 @@
+.anyClass {
+  height:400px;
+  overflow-y: scroll;
+  display: inline-block;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+button{
+  margin-bottom: 2px;
+}
