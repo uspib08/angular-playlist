@@ -27,9 +27,12 @@
 </head>
 <br>
 <h1 hidden>{{searchText}}</h1>
+<!-- <app-liste-utilisateur></app-liste-utilisateur> -->
 <p>Liste des playlists</p>
-  <div class="table-responsive">
-    <table class="js-sort-table table table-light table-striped table-bordered table-hover col-sm-8">
+<!-- <app-liste-utilisateur></app-liste-utilisateur> -->
+<div class="row">
+  <div class="table-responsive  col-sm-8">
+    <table class="js-sort-table table table-light table-striped table-bordered table-hover">
       <thead class="thead-dark">
         <tr>
           <th scope="col" class="js-sort-number">Numero</th>
@@ -58,5 +61,7 @@
     <!-- <button (click)="style('test')">oui</button> -->
     <input class="form-control" type="text" name="search" [(ngModel)]="searchText._nom" [(ngModel)]="searchText._style" autocomplete="off"  hidden>
 
-    <app-Liste-Style></app-Liste-Style>
+    <app-Liste-Style (emetstyle)="recupEvt($event)" class="col-sm-2"></app-Liste-Style>
+</div>
+
 

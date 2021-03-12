@@ -8,16 +8,13 @@
 
 </select> -->
 
-
-
-
-<div class=" col-md-2">
+<div>
   <ul class="nav nav-pills nav-stacked anyClass" id="coucou">
-    <li *ngFor = "let style of this.listPlaylist; index as i" class="nav-item" >
-      <a class="nav-link active" href="#" >{{style._style}}</a>
+    <li *ngFor="let style of this.listPlaylist; index as i" class="nav-item">
+      <button class="nav-link px-sm-5 btn btn-outline-primary" (click)="filtrer(style._style)">{{ style._style }}</button>
     </li>
 
-   <!-- <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link" href="#">Link</a>
     </li>
     <li class="nav-item">   [(ngModel)]="oui[i]"
@@ -25,4 +22,3 @@
     </li>-->
   </ul>
 </div>
-<button (click)="tester()">test</button>
