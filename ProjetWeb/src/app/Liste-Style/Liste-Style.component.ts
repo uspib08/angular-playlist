@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, OnInit, Output, ViewChild } from '@angular/core';
 import { ApiMusiqueService } from '../apiMusique.service';
 
 @Component({
@@ -19,6 +19,7 @@ export class ListeStyleComponent implements OnInit {
   @Output() emetstyle = new EventEmitter<any>();
 
 
+
   // names = ['Rap', 'UUU', 'hhh', 'tetet'];
 
   ngOnInit() {
@@ -30,20 +31,28 @@ export class ListeStyleComponent implements OnInit {
         console.log("Erreur d'affichage playlist : " + error);
       }
     );
-    this.tester();
-    console.log(this.listStyle);
+
+    // this.tester();
 
     // this.dummyClickRef.nativeElement.click()
   }
 
+  @HostListener('document:mousemove', ['$event'])
   tester() {
-    var u = document.getElementById('coucou')?.innerText;
-    console.log(u);
+    // console.log(this.listPlaylist[0]._style);
+    for(let index=0;index<this.listPlaylist.length;index++){
+      this.listStyle.push(this.listPlaylist[index]._style)
+    }
+    // console.log(this.listStyle);
 
-    this.listStyle = u?.split('\n');
+
+    // var u = document.getElementById('coucou')?.innerText;
+    // console.log(u);
+
+    // this.listStyle = u?.split('\n');
     this.listStyle = uniqueArray3(this.listStyle);
-    this.listStyle.splice(0,1);
-    console.log("ici"+this.listStyle);
+    // this.listStyle.splice(0,1);
+    // console.log("ici"+this.listStyle);
 
   }
 

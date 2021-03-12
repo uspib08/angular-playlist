@@ -7,13 +7,13 @@
   <option *ngFor="let dl of this.names" [value]="dl">{{dl}}</option>
 
 </select> -->
-<button  (click)="tester()">oui</button>
+<!-- <button  (click)="tester()">oui</button> -->
 <div>
-  <ul class="nav nav-pills nav-stacked anyClass" id="coucou" hidden>
+  <!-- <ul class="nav nav-pills nav-stacked anyClass" id="coucou" hidden>
     <li *ngFor="let style of this.listPlaylist; index as i" class="nav-item">
       <button class="nav-link px-sm-5 btn btn-outline-primary">{{ '\n'+style._style }}</button>
     </li>
-  </ul>
+  </ul> -->
   <ul class="nav nav-pills nav-stacked anyClass">
     <li *ngFor="let style of this.listStyle; index as i" class="nav-item">
       <button class="nav-link px-sm-5 btn btn-outline-primary" (click)="filtrer(style)">{{ style }}</button>
