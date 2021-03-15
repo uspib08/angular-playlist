@@ -3,8 +3,56 @@
 <br>
 
 <mat-tab-group  [disableRipple]="false">
-    <mat-tab  id="luti" label="{{tab._createur}}" *ngFor="let tab of this.listPlaylist">
+    <mat-tab hidden></mat-tab>
+    <mat-tab (change)="hideElements()" id="luti" label="{{tab._createur}}" *ngFor="let tab of this.listPlaylist; index as i">
       {{tab._createur}}
+      <div class="table-responsive  col-sm-8">
+        <table class="js-sort-table table table-light table-striped table-bordered table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col" class="js-sort-number">Numero</th>
+              <th scope="col" class="js-sort-string">Nom</th>
+              <th scope="col" class="js-sort-string">Créateur</th>
+              <th scope="col" class="js-sort-string">Style</th>
+              <th class="js-sort-number">Nombre de clicks</th>
+              <!-- <th class="js-sort-none">Supprimer</th> -->
+              <th class="js-sort-none">Visualisation</th>
+            </tr>
+          </thead>
+
+          <tbody class="thead-secondary">
+            <tr>
+              <td>{{ i + 1 }}</td>
+              <td>{{ tab._nom }}</td>
+              <td>{{ tab._createur }}</td>
+              <td>{{ tab._style}}</td>
+              <td>{{ tab._nbclicks }}</td>
+              <!-- <td><button class="glow-on-hover" type="button" >supprimer</button></td> -->
+              <td><button class="glow-on-hover" type="button" routerLink="afficher" (click)="viewPlaylist(i)">voir</button></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
     </mat-tab>
 </mat-tab-group>
-<button (click)="recup()">test</button>
+<!-- <button (click)="recup()">test</button> -->
+
+
+<!-- <mat-card>
+  <div class="help-container">
+    <mat-tab-group mat-stretch-tabs class="bko-stretched-tabs mat-elevation-z4">
+       <mat-tab label="Tutorials">
+           tab1
+       </mat-tab>
+
+       <mat-tab label="Support">
+           tab2
+       </mat-tab>
+    </mat-tab-group>
+  </div>
+</mat-card> -->
+<!-- <mat-tab-group>
+  <mat-tab label="First"> Content 1 </mat-tab>
+  <mat-tab label="Second"> Content 2 </mat-tab>
+  <mat-tab label="Third"> Content 3 </mat-tab>
+</mat-tab-group> -->

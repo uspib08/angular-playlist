@@ -1,17 +1,19 @@
+import { DataService } from './../DataService';
 import { ApiMusiqueService } from './../apiMusique.service';
 import { MatTabsModule } from '@angular/material/tabs';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-liste-utilisateur',
   templateUrl: './liste-utilisateur.component.html',
-  styleUrls: ['./liste-utilisateur.component.scss']
+  styleUrls: ['./liste-utilisateur.component.scss'],
+  // encapsulation: ViewEncapsulation.None,
 })
 export class ListeUtilisateurComponent implements OnInit {
   public listPlaylist : any;
   public listuti : any;
-  constructor(private apimusique : ApiMusiqueService) {
+  constructor(private apimusique : ApiMusiqueService, private dataservice : DataService) {
 
   }
   tabs=['oui', 'non', 'hihi'];
@@ -29,11 +31,21 @@ export class ListeUtilisateurComponent implements OnInit {
 
   }
 
-  recup(){
-    var u = document.getElementById('luti')?.innerText;
-    console.log(u);
+  // recup(){
+  //   var u = document.getElementById('luti')?.innerText;
+  //   console.log(u);
 
-  }
+  // }
+
+  public viewPlaylist(id : number){
+    this.dataservice.noindex = id;
+    console.log(this.dataservice.noindex);
+
+ }
+
+ hideElements(){
+   console.log("ça marche");
+ }
 
 
 

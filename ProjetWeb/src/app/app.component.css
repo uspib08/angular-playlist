@@ -102,3 +102,18 @@ ul li:nth-child(4):hover span{
   margin-top: 14px;
   margin-left: 50px;
 }
+
+#search{
+  margin-left: 20px;
+}
+
+#monimage{
+  margin-right: 150px;
+}
+#miage{
+  background: -webkit-linear-gradient(left, #ec2831,#17b3f1);
+  /* background: linear-gradient(to right, #25c481, #25b7c4); */
+  background: linear-gradient(to right, #ec2831,#17b3f1);
+  padding: 5px;
+  margin-right: 4rem;
+}

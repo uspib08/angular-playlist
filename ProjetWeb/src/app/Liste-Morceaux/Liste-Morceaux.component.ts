@@ -6,7 +6,7 @@ import { Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Outp
 @Component({
   selector: 'app-Liste-Morceaux',
   templateUrl: './Liste-Morceaux.component.html',
-  styleUrls: ['./Liste-Morceaux.component.css']
+  styleUrls: ['./Liste-Morceaux.component.scss']
 })
 export class ListeMorceauxComponent implements OnInit {
 

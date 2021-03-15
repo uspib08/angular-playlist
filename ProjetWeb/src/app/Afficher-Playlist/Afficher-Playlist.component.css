@@ -2,11 +2,12 @@
 /* demo styles */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;900&display=swap');
 body{
   background: -webkit-linear-gradient(left, #25b7c4, #0b1f36);
   /* background: linear-gradient(to right, #25c481, #25b7c4); */
   background: linear-gradient(to right, #25b7c4, #0b1f36);
-  font-family: 'Roboto', sans-serif;
+  font-family: Montserrat, sans-serif;
 }
 section{
   margin: 50px;
@@ -14,8 +15,8 @@ section{
 
 
 h1{
-  font-size: 30px;
-  color: #fff;
+  font-size: 50px;
+  color:  #d6ebfc;
   text-transform: uppercase;
   font-weight: 300;
   text-align: center;
@@ -25,6 +26,7 @@ table{
   width:100%;
   table-layout: fixed;
   box-shadow: 0px 0px 10px 0px #000;
+  margin-bottom: 100px;
 }
 .tbl-header{
   background-color: rgba(255,255,255,0.3);
