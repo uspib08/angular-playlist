@@ -94,25 +94,22 @@ border-radius: 10px;
 100% { background-position: 0 0; }
 }
 
-/* Styles for tab labels */
+.mat-tab{
+  background: red;
+}
+
 .mat-tab-label {
-  min-width: 25px !important;
-  padding: 5px;
-  background-color: transparent;
-  color: red;
-  font-weight: 700;
+  border: 1px solid transparent;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
 }
 
-/* Styles for the active tab label */
-.mat-tab-label.mat-tab-label-active {
-  min-width: 25px !important;
-  padding: 5px;
-  background-color: transparent;
-  color: red;
-  font-weight: 700;
+.mat-tab-label-active {
+ color: #495057;
+  background-color: #fff;
+  border-color: #dee2e6 #dee2e6 #fff;
 }
 
-/* Styles for the ink bar */
-.mat-ink-bar {
-  background-color: green;
-}
+// .mat-ink-bar {
+// display: none;
+// }

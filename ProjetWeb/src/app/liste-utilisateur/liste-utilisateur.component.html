@@ -2,9 +2,9 @@
 
 <br>
 
-<mat-tab-group  [disableRipple]="false">
+<mat-tab-group  [disableRipple]="true" class="mat-tab-group mat-primary">
     <mat-tab hidden></mat-tab>
-    <mat-tab (change)="hideElements()" id="luti" label="{{tab._createur}}" *ngFor="let tab of this.listPlaylist; index as i">
+    <mat-tab (click)="hideElements()" id="luti" label="{{tab._createur}}" *ngFor="let tab of this.listPlaylist; index as i">
       {{tab._createur}}
       <div class="table-responsive  col-sm-8">
         <table class="js-sort-table table table-light table-striped table-bordered table-hover">
@@ -38,21 +38,4 @@
 <!-- <button (click)="recup()">test</button> -->
 
 
-<!-- <mat-card>
-  <div class="help-container">
-    <mat-tab-group mat-stretch-tabs class="bko-stretched-tabs mat-elevation-z4">
-       <mat-tab label="Tutorials">
-           tab1
-       </mat-tab>
 
-       <mat-tab label="Support">
-           tab2
-       </mat-tab>
-    </mat-tab-group>
-  </div>
-</mat-card> -->
-<!-- <mat-tab-group>
-  <mat-tab label="First"> Content 1 </mat-tab>
-  <mat-tab label="Second"> Content 2 </mat-tab>
-  <mat-tab label="Third"> Content 3 </mat-tab>
-</mat-tab-group> -->
