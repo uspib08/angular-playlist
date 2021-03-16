@@ -1,7 +1,7 @@
 import { DataService } from './../DataService';
 import { ApiMusiqueService } from './../apiMusique.service';
 import { MatTabsModule } from '@angular/material/tabs';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -17,6 +17,9 @@ export class ListeUtilisateurComponent implements OnInit {
 
   }
   tabs=['oui', 'non', 'hihi'];
+
+  @Output() emetclick = new EventEmitter<String>();
+
 
   ngOnInit() {
     this.apimusique.afficherToutePlaylist().subscribe(
@@ -44,9 +47,13 @@ export class ListeUtilisateurComponent implements OnInit {
  }
 
  hideElements(){
-   console.log("ça marche");
+   this.emetclick.emit("oui");
  }
 
+ recupEvt(a : any){
+  console.log(a);
+  this.listPlaylist = a;
+}
 
 
 

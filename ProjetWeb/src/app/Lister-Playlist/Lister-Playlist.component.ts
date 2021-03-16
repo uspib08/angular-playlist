@@ -1,6 +1,6 @@
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DataService } from './../DataService';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiMusiqueService } from '../apiMusique.service';
 import { PlayList } from '../PlayList';
@@ -20,6 +20,7 @@ export class ListerPlaylistComponent implements OnInit {
   public laliste : any;
   public sty : string="";
   public searchText: any;
+  public isVisible : boolean=true;
 
 
 
@@ -44,7 +45,6 @@ export class ListerPlaylistComponent implements OnInit {
   //   console.log(this.noindex);
   // }
 
-
    public viewPlaylist(id : number){
       this.dataservice.noindex = id;
       console.log(this.dataservice.noindex);
@@ -68,5 +68,10 @@ export class ListerPlaylistComponent implements OnInit {
   recupEvt(a : any){
     console.log(a);
     this.listPlaylist = a;
+  }
+
+  recupEvtClick(b : any){
+    console.log("test");
+    this.isVisible = false;
   }
 }
