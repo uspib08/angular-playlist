@@ -52,7 +52,6 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {ReactiveFormsModule} from '@angular/forms';
-import { TestComponent } from './test/test.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {CdkTableModule} from '@angular/cdk/table';
 
@@ -62,7 +61,6 @@ const appRoutes: Routes = [
   {path: 'lister', component : ListerPlaylistComponent},
   {path: 'lister/afficher', component : AfficherPlaylistComponent},
   {path: 'lister/propositions', component : ListeMorceauxComponent},
-  {path: 'test', component : TestComponent},
   {path: '', redirectTo: 'lister', pathMatch: 'full'},
   {path: '**', redirectTo: 'lister'}
 
@@ -115,7 +113,6 @@ const materialModules = [
       AjouterMorceauxCreationComponent,
       ListeStyleComponent,
       ListeUtilisateurComponent,
-      TestComponent,
    ],
   imports: [
     RouterModule.forRoot(appRoutes),

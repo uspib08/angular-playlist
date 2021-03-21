@@ -2,8 +2,8 @@
 
 <br>
 
-<mat-tab-group  [disableRipple]="false" (selectedTabChange)="hideElements()" class="mat-tab-group mat-primary">
-    <mat-tab hidden></mat-tab>
+<mat-tab-group [disableRipple]="false" (selectedTabChange)="hideElements()" class="mat-tab-group mat-primary">
+    <mat-tab hidden disabled></mat-tab>
     <mat-tab id="luti" label="{{tab._createur}}" *ngFor="let tab of this.listPlaylist; index as i">
       {{tab._createur}}
       <div class="table-responsive  col-sm-8">
@@ -33,7 +33,7 @@
           </tbody>
         </table>
         </div>
-        <app-Liste-Style (emetstyle)="recupEvt($event)" class="col-sm-2"></app-Liste-Style>
+        <!-- <app-Liste-Style (emetstyle)="recupEvt($event)" class="col-sm-2"></app-Liste-Style> -->
 
     </mat-tab>
 
