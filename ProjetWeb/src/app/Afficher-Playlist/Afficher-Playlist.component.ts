@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class AfficherPlaylistComponent implements OnInit {
   public Playlist : PlayList;
   public test:number=0;
+  public searchText: any;
 
   constructor(private apiMusique : ApiMusiqueService, public dataservice : DataService) {
     this.Playlist = new PlayList();
@@ -19,10 +20,15 @@ export class AfficherPlaylistComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dataservice.currentSearch.subscribe(message => this.searchText=message)
     this.apiMusique.afficherPlaylist(this.dataservice.noindex).subscribe((response) => {this.Playlist = response},
     (error)=>{console.log("Erreur d'affichage playlist : " +error)});
     console.log(this.Playlist._nom);
   }
+   ngOnDestroy(){
+
+
+   }
 
   incrementer(){
     this.test = 1;

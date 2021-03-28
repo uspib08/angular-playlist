@@ -22,7 +22,7 @@ constructor(private data:DataService) {
 
   recherche(str : string){
     this.searchStr=str;
-    console.log("str "+str);
+    //console.log("str "+str);
     this.data.changeSearch(str);
   }
 

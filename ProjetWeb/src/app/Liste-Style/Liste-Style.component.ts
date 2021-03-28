@@ -61,11 +61,19 @@ export class ListeStyleComponent implements OnInit {
     console.log(this.listStyle);
 
     var listefiltree = new Array();
-    for(let index=0; index<this.listPlaylist.length; index++){
+    if(style=='tout'){
+      for(let index=0; index<this.listPlaylist.length; index++){
+          listefiltree.push(this.listPlaylist[index]);
+       }}
+    else
+    {
+       for(let index=0; index<this.listPlaylist.length; index++){
       if(this.listPlaylist[index]._style == style){
         listefiltree.push(this.listPlaylist[index]);
       }
     }
+    }
+
     // this.listPlaylist = listefiltree;
     // console.log(this.listPlaylist);
     this.emetstyle.emit(listefiltree);

@@ -1,5 +1,7 @@
 <br>
 <head>
+
+
   <link rel="stylesheet" href="Afficher-Playlist.component.css">
 </head>
 <body>
@@ -11,16 +13,16 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="container">
-        <table>
+        <table >
           <thead class="tbl-header">
             <tr>
-              <th>index</th>
-              <th>titre</th>
-              <th>artiste</th>
+              <th >index</th>
+              <th >titre</th>
+              <th >artiste</th>
             </tr>
           </thead>
           <tbody class="tbl-content">
-            <tr *ngFor="let play of Playlist._listMorceaux; index as i">
+            <tr *ngFor="let play of Playlist._listMorceaux | filter:searchText; index as i">
               <td>{{ i + 1 }}</td>
               <td>{{ play._titre }}</td>
               <td>{{ play._artiste }}</td>
@@ -29,6 +31,8 @@
         </table>
       </div>
     </div>
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText._titre" [(ngModel)]="searchText._artiste" autocomplete="off"  hidden>
+
     <div *ngIf="test==1">
       <app-Liste-Morceaux (emetteur)="recupEvt($event)" class="col-sm-6"></app-Liste-Morceaux>
     </div>
