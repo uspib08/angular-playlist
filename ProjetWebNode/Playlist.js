@@ -5,8 +5,10 @@ const Morceau = require('./Morceau');
 
 var _listMorceaux;
 var _listContributeurs;
+var index = 0;
 module.exports = class Playlist{
     constructor(nom, createur, style){
+        this._id=index++; // ça
         this._nom = nom;
         this._createur = createur;
         this._style = style;

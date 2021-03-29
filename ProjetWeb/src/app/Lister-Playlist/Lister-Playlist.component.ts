@@ -65,6 +65,7 @@ export class ListerPlaylistComponent implements OnInit {
     location.reload();
   }
 
+
   recupEvt(a : any){
     console.log(a);
     this.listPlaylist = a;

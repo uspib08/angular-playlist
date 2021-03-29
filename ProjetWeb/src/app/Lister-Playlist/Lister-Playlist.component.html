@@ -24,12 +24,12 @@
 
       <tbody class="thead-secondary">
         <tr *ngFor="let play of listPlaylist | filter:searchText ; index as i ">
-          <td>{{ i + 1 }}</td>
+          <td>{{ play._id }}</td>
           <td>{{ play._nom }}</td>
           <td>{{ play._createur }}</td>
           <td>{{ play._style}}</td>
           <td>{{ play._nbclicks }}</td>
-          <td><button class="glow-on-hover" type="button" (click)="supprimer(i)">supprimer</button></td>
+          <td><button class="glow-on-hover" type="button" (click)="supprimer(play._id)">supprimer</button></td>
           <td><button class="glow-on-hover" type="button" routerLink="afficher" (click)="viewPlaylist(i) ">voir</button></td>
         </tr>
       </tbody>

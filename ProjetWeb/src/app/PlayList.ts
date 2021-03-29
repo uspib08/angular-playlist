@@ -1,6 +1,7 @@
 import { Morceau } from "./Morceau";
 
 export class PlayList{
+    _id : number=0;
     _nom : string="";
     _createur : string="";
     _style : string="";

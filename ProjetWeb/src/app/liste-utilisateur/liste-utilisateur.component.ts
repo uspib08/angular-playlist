@@ -1,7 +1,7 @@
 import { DataService } from './../DataService';
 import { ApiMusiqueService } from './../apiMusique.service';
 import { MatTabsModule } from '@angular/material/tabs';
-import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -13,8 +13,9 @@ import { FormControl } from '@angular/forms';
 export class ListeUtilisateurComponent implements OnInit {
   public listPlaylist : any;
   public listuti : any;
-  constructor(private apimusique : ApiMusiqueService, private dataservice : DataService) {
 
+  constructor(private apimusique : ApiMusiqueService, private dataservice : DataService) {
+    this.listuti=new Array();
   }
   tabs=['oui', 'non', 'hihi'];
 
@@ -31,6 +32,16 @@ export class ListeUtilisateurComponent implements OnInit {
       }
     );
     console.log(this.listPlaylist);
+
+  }
+  @HostListener('document:mousemove', ['$event'])
+  tester() {
+    // console.log(this.listPlaylist[0]._style);
+    for(let index=0;index<this.listPlaylist.length;index++){
+      this.listuti.push(this.listPlaylist[index]._createur)
+    }
+
+    this.listuti = uniqueArray3(this.listuti);
 
   }
 
@@ -56,6 +67,14 @@ export class ListeUtilisateurComponent implements OnInit {
 }
 
 
+}
+function uniqueArray3(a: any) {
+  function onlyUnique(value: any, index: any, self: any) {
+    return self.indexOf(value) === index;
+  }
 
+  // usage
+  var unique = a.filter(onlyUnique); // returns ['a', 1, 2, '1']
 
+  return unique;
 }
