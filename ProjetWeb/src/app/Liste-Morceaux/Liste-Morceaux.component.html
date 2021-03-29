@@ -1,14 +1,16 @@
 <head>
   <link rel="stylesheet" href="Liste-Morceaux.component.scss">
+  <script type="text/javascript" src="../Lister-Playlist/sort-table.js"></script>
+
 </head>
 <body>
-  <table class="table table-dark table-striped">
+  <table class="js-sort-table table table-dark table-striped">
     <thead>
       <tr>
-        <th>#</th>
-        <th>Artiste</th>
-        <th>Titre</th>
-        <th>Contributeur</th>
+        <th scope="col" class="js-sort-number">#</th>
+        <th scope="col" class="js-sort-string">Artiste</th>
+        <th scope="col" class="js-sort-string">Titre</th>
+        <th scope="col" class="js-sort-string">Contributeur</th>
       </tr>
     </thead>
 

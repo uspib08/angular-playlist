@@ -31,7 +31,7 @@ export class ListeMorceauxComponent implements OnInit {
   }
 
   @Output() emetteur = new EventEmitter<Morceau>();
-  @Output() emetteur2 = new EventEmitter<String>();
+  @Output() emetteur2 = new EventEmitter<string>();
 
   ngOnInit() {
     this.apimusique.afficherPlaylist(this.dataservice.noindex).subscribe(
