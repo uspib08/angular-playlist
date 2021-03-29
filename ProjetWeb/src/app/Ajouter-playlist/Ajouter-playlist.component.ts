@@ -19,6 +19,9 @@ export class AjouterPlaylistComponent implements OnInit {
 
   ngOnInit() {
   }
+  ngOnDestroy() {
+
+  }
 
   ajouterPlaylist(nom : string, createur :string, style : string){
     this.apiMusique.creerPlaylist(nom, createur, style);

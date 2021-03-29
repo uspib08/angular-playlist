@@ -41,6 +41,9 @@ export class AfficherPlaylistComponent implements OnInit {
     // console.log(this.Playlist._nom);
     this.Playlist._listMorceaux.push(m);
   }
+  recupEvt2(s : string){
+    this.Playlist._listContributeurs.push(s);
+  }
 
 
 
