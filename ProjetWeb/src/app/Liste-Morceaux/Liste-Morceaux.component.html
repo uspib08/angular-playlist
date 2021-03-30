@@ -4,6 +4,7 @@
 
 </head>
 <body>
+
   <table class="js-sort-table table table-dark table-striped">
     <thead>
       <tr>
@@ -34,6 +35,7 @@
 
   <!-- </form> -->
   <h1 id="titre">Ajouter une suggestion</h1>
+  <div class="container">
   <div class="row">
     <!-- <div class="col-sm-5 px-5 pt-5">
       <input
@@ -45,20 +47,25 @@
       />
       <label for="Nom" class="form__label">Nom de l'artiste : </label>
     </div> -->
-    <div class="form__group field  col-sm-5 px-5 ">
-      <input type="input" class="form__field" id="nom" placeholder="Entrer un nom d'artiste" [(ngModel)]="m._artiste" required />
-      <label for="Nom" class="form__label">Artiste : </label>
-    </div>
-    <div class="form__group field  col-sm-5 px-5 ">
+    <div class="form__group field  col-sm-6 px-5 ">
       <input type="input" class="form__field" id="nom" placeholder="Entrer un titre" [(ngModel)]="m._titre" required />
       <label for="Nom" class="form__label">Titre : </label>
     </div>
-    <div class="form__group field  col-sm-5 px-5 ">
-      <input type="input" class="form__field" id="contributeur" placeholder="Entrer votre nom" [(ngModel)]="contri" required />
+    <div class="form__group field  col-sm-6 px-5 ">
+      <input type="input" class="form__field" id="nom" placeholder="Entrer un nom d'artiste" [(ngModel)]="m._artiste" required />
+      <label for="Nom" class="form__label">Artiste : </label>
+    </div>
+
+    <div class="form__group field  col-sm-6 px-5">
+      <input type="input" class="form__field" id="nom" placeholder="Entrer votre nom" [(ngModel)]="contri" required />
       <label for="Contributeur" class="form__label">Contributeur : </label>
     </div>
   </div>
-  <div class="col offset-1 px-5 pt-5">
+<div class="text-center">
+  <br>
+    <p>{{message}}</p>
+  </div>
+  <div class="px-5 pt-5 text-center">
     <button
       class="glow-on-hover"
       (click)="ajouter(m._artiste, m._titre, contri)"
@@ -66,4 +73,6 @@
       Ajouter
     </button>
   </div>
+
+</div>
 </body>

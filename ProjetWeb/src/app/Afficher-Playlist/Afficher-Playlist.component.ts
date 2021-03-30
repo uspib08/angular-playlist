@@ -5,27 +5,33 @@ import { ApiMusiqueService } from '../apiMusique.service';
 import { Component, OnInit } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 import { MatSortModule } from '@angular/material/sort' ;
-
+declare const sortTable: any;
 @Component({
   selector: 'app-Afficher-Playlist',
   templateUrl: './Afficher-Playlist.component.html',
   styleUrls: ['./Afficher-Playlist.component.css'],
+
 })
 export class AfficherPlaylistComponent implements OnInit {
   public Playlist: PlayList;
   public test: number = 0;
   public searchText: any;
-  public PlaylistSorted: any;
+
+  //public PlaylistSorted: any; // marche pas
 
   constructor(
     private apiMusique: ApiMusiqueService,
     public dataservice: DataService
   ) {
     this.Playlist = new PlayList();
-    this.PlaylistSorted = new Array();
+
+  //  this.PlaylistSorted = new Array(); // marche pas
+
   }
 
   ngOnInit() {
+
+   // this.loadScripts();
     this.dataservice.currentSearch.subscribe(
       (message) => (this.searchText = message)
     );
@@ -37,8 +43,7 @@ export class AfficherPlaylistComponent implements OnInit {
         console.log("Erreur d'affichage playlist : " + error);
       }
     );
-
-
+      sortTable.init()
     console.log(this.Playlist._nom);
   }
   ngOnDestroy() {}
@@ -58,8 +63,10 @@ export class AfficherPlaylistComponent implements OnInit {
     this.Playlist._listContributeurs.push(s);
   }
 
+  }
+
   // marche pas
-  sortData(sort: Sort) {
+  /*sortData(sort: Sort) {
     const data = this.Playlist._listMorceaux;
     if (!sort.active || sort.direction === '') {
       this.PlaylistSorted= data;
@@ -69,7 +76,7 @@ export class AfficherPlaylistComponent implements OnInit {
     rank._index = i;
   });*/
 
-    this.PlaylistSorted = data.sort((a,b) => {
+   /* this.PlaylistSorted = data.sort((a,b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         //case 'index':
@@ -87,3 +94,4 @@ export class AfficherPlaylistComponent implements OnInit {
 function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
+*/

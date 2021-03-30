@@ -1,3 +1,4 @@
+import { PlayList } from './../PlayList';
 import { DataService } from './../DataService';
 import { ApiMusiqueService } from './../apiMusique.service';
 import { Morceau } from './../Morceau';
@@ -21,6 +22,7 @@ export class ListeMorceauxComponent implements OnInit {
   public m: Morceau = new Morceau();
   public contri: any;
   public Playlist: any;
+  public message : string | undefined;
 
   constructor(
     private apimusique: ApiMusiqueService,
@@ -29,32 +31,37 @@ export class ListeMorceauxComponent implements OnInit {
     this.Playlist=new Array();
     this.liste = new Array();
   }
-
+  @Input()
+  playlistParent: PlayList = new PlayList;
   @Output() emetteur = new EventEmitter<Morceau>();
   @Output() emetteur2 = new EventEmitter<string>();
 
   ngOnInit() {
-    this.apimusique.afficherPlaylist(this.dataservice.noindex).subscribe(
+   /* this.apimusique.afficherPlaylist(this.dataservice.noindex).subscribe(
       (response) => {
         this.Playlist = response;
       },
       (error) => {
         console.log("Erreur d'affichage playlist : " + error);
       }
-    );
+    );*/
+    this.Playlist=this.playlistParent;
   }
 
   ajouter(artiste: string, titre: string, contributeur: string): void {
+    this.message="";
     // verification que rien ne soit vide
-    if (artiste == '' || titre == '' || contributeur == '') {
-      console.log("Des cases vides ..");
+    if (artiste == null || titre == null || contributeur == null ) {
+      this.message="Des cases vides ..";
+      //console.log("Des cases vides ..");
       return;
     }
     //verification que ça ne soit pas déjà dans la liste des propositions
     for (let key = 0; key < this.liste.length; key++) {
       var a = this.liste[key];
       if (a._artiste == artiste && a._titre == titre) {
-        console.log("Déjà dans la liste ! ");
+        this.message="Déjà dans la liste ! "
+        //console.log("Déjà dans la liste ! ");
         return;
       }
     }
@@ -63,7 +70,8 @@ export class ListeMorceauxComponent implements OnInit {
     for (let key = 0; key < listemorceau.length; key++) {
       var a = listemorceau[key];
       if (a._artiste == artiste && a._titre == titre) {
-        console.log("Déjà dans la playlist finale !");
+        this.message="Déjà dans la playlist finale !"
+       // console.log("Déjà dans la playlist finale !");
         return;
       }
     }
@@ -78,7 +86,7 @@ export class ListeMorceauxComponent implements OnInit {
         rank._contributeur = contributeur;
       }
     });
-    this.refreshData();
+    //this.refreshData();
   }
 
   envoyer(tit: string, art: string, contri: string) {
@@ -106,7 +114,7 @@ export class ListeMorceauxComponent implements OnInit {
       this.apimusique.ajouterContributeur(this.dataservice.noindex, contri);
     }
     this.delete(tit, art);
-    this.refreshData();
+    //this.refreshData();
   }
 
   delete(tit: string, art: string) {
@@ -120,10 +128,10 @@ export class ListeMorceauxComponent implements OnInit {
     if (index !== -1) {
       this.liste.splice(index, 1);
     }
-    this.refreshData();
+    //this.refreshData();
   }
 
-  refreshData(){
+  /*refreshData(){
     this.apimusique.afficherPlaylist(this.dataservice.noindex).subscribe(
       (response) => {
         this.Playlist = response;
@@ -133,5 +141,5 @@ export class ListeMorceauxComponent implements OnInit {
       }
     );
 
-  }
+  }*/
 }
