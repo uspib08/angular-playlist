@@ -11,34 +11,60 @@ import { Subscription } from 'rxjs';
 })
 export class AjouterMorceauxCreationComponent implements OnInit {
   public listePlay : any;
-  public nom : string="";
-  public createur : string = "";
+  public nom !: string;
+  public createur !: string ;
   public numero :number=0;
-  public test:Subscription;
+  //public test:Subscription;
+  public message : string="";
+  public pb : number=0;
   constructor(private apiMusique: ApiMusiqueService) {
-    this.test = this.apiMusique.afficherToutePlaylist().subscribe((response) => {this.listePlay = response},
-    (error)=>{console.log("Erreur d'affichage playlist : " +error)});
+   //this.test = this.apiMusique.afficherToutePlaylist().subscribe((response) => {this.listePlay = response},
+    //(error)=>{console.log("Erreur d'affichage playlist : " +error)});
   }
 
   ngOnInit() {
-    // this.apiMusique.afficherToutePlaylist().subscribe((response) => {this.listePlay = response},
-    // (error)=>{console.log("Erreur d'affichage playlist : " +error)});
+     this.apiMusique.afficherToutePlaylist().subscribe((response) => {this.listePlay = response},
+    (error)=>{console.log("Erreur d'affichage playlist : " +error)});
 
   }
   ngOnDestroy(){
-    this.test.unsubscribe();
+    //this.test.unsubscribe();
   }
 
   ajouterMorceaux(titre:string, artiste:string){
 
-    console.log(this.listePlay.length);
-    console.log(titre +  artiste);
-
-    if(this.listePlay.length==0){
-      this.apiMusique.ajouterMorceau(0, titre ,artiste);
-    }else{
-      this.apiMusique.ajouterMorceau(this.listePlay.length-1, titre ,artiste);
+    this.message="";
+    if(titre == null ||artiste==null){
+      this.message="Renseignez tout les champs ! "
+      return;
     }
-    console.log(this.apiMusique.afficherToutePlaylist());
+    //console.log(titre +  artiste);
+    if(this.pb%2==0){
+    if(this.listePlay.length==0){
+      for (let key = 0; key < this.listePlay[0]._listMorceaux.lenghth; key++) {
+        var a = this.listePlay[0]._listMorceaux[key];
+        if (a._titre== titre && a._artiste == artiste ) {
+          this.message="Morceau déjà dans la playlist !"
+          return;
+        }
+      }
+      this.apiMusique.ajouterMorceau(0, titre ,artiste);
+      this.message="Musique ajouté ! "
+    }else{
+      for (let key = 0; key < this.listePlay[this.listePlay.length-1]._listMorceaux.length; key++) {
+        var a = this.listePlay[this.listePlay.length-1]._listMorceaux[key];
+        if (a._titre== titre && a._artiste == artiste ) {
+          this.message="Morceau déjà dans la playlist !"
+          return;
+        }
+      }
+      this.apiMusique.ajouterMorceau(this.listePlay.length-1, titre ,artiste);
+      this.message="Musique ajouté !"
+    }
+  }
+  this.pb++;
+
+  this.ngOnInit();
+   // console.log(this.apiMusique.afficherToutePlaylist());
   }
 }

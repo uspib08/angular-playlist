@@ -52,7 +52,7 @@ export class ListeUtilisateurComponent implements OnInit {
     this.listnomUti.push(this.listPlaylist[index]._createur);
   }
   this.listnomUti = uniqueArray3(this.listnomUti);
-  console.log(this.listnomUti);
+  //console.log(this.listnomUti);
 
  }
 

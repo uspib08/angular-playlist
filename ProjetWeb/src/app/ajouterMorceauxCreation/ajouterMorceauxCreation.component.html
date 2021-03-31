@@ -1,30 +1,52 @@
-
-
 <body>
-<div class="col-xl-7">
-  <!-- <form> -->
-
-
-
-    </div>
+  <div class="col-xl-7">
+    <!-- <form> -->
+  </div>
   <!-- </form> -->
 
-
-<div class="row">
-  <div class="col-sm-5 px-5 pt-5">
-    <label for="Nom">Titre : </label>
-    <input type="text" class="form-control" id="nom" placeholder="Entrer le titre" [(ngModel)]="nom">
+  <div class="row">
+    <div class="col-sm-5 px-5 pt-5">
+      <label for="Nom">Titre : </label>
+      <input
+        type="text"
+        class="form-control"
+        id="nom"
+        placeholder="Entrer le titre"
+        [(ngModel)]="nom"
+      />
+    </div>
+    <div class="col-sm-5 px-5 pt-5">
+      <label for="Nom">Artiste : </label>
+      <input
+        type="text"
+        class="form-control"
+        id="crea"
+        placeholder="Entrer le nom de l'Artiste"
+        [(ngModel)]="createur"
+      />
+    </div>
   </div>
-  <div class="col-sm-5 px-5 pt-5">
-    <label for="Nom">Artiste : </label>
-    <input type="text" class="form-control" id="crea" placeholder="Entrer le nom de l'Artiste" [(ngModel)]="createur" >
+  <br />
+  <div class="row">
+    <button
+      class="btn btn-outline-secondary col offset-1 col-sm-4"
+      (click)="ajouterMorceaux(nom, createur)"
+    >
+      Ajouter Morceau
+    </button>
+    <button
+      class="btn btn-outline-primary col offset-1 col-sm-4"
+      routerLink="lister"
+    >
+      Enregistrer
+    </button>
+  </div>
+  <div>
+  <div class="text-center">
+    <p>
+      {{ message }}
+    </p>
   </div>
 </div>
-<br>
-<div class="row">
-  <button class="btn btn-outline-secondary col offset-1 col-sm-4" (click)="ajouterMorceaux(nom, createur)">Ajouter Morceau</button>
-  <button class="btn btn-outline-primary col offset-1 col-sm-4" routerLink="lister">Enregistrer</button>
-</div>
-<div class="col offset-1 col-sm-7 px-5 pt-5">
-</div>
+  <div class="col offset-1 col-sm-7 px-5 pt-5"></div>
 </body>

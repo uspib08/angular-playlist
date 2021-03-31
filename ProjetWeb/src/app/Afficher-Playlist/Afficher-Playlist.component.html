@@ -40,11 +40,11 @@
       <!-- A mettre dans un autre composant ?-->
 
       <div class="col-sm-4">
-        <table>
+        <table class="js-sort-table ">
           <thead class="tbl-header">
             <tr>
-              <th>index</th>
-              <th>contributeur</th>
+              <th class="js-sort-number">index</th>
+              <th  class="js-sort-string">contributeur</th>
             </tr>
           </thead>
           <tbody class="tbl-content">
@@ -100,7 +100,7 @@
 </body>
 <footer>
   <div class="text-center">
-    <a href="/lister/afficher#up" class="glow-on-hover btn">up</a>
+    <a href="/lister/afficher#up" class="glow-on-hover btn" (click)="reloadTableau()">up</a>
   </div>
 </footer>
 
