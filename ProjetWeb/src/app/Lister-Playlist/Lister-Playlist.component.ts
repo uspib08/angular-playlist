@@ -72,7 +72,7 @@ export class ListerPlaylistComponent implements OnInit {
   }
 
   recupEvtClick(b : any){
-    console.log("test");
+    // console.log("test");
     this.isVisible = false;
   }
 }

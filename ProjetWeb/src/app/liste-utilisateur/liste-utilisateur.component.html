@@ -4,8 +4,8 @@
 
 <mat-tab-group [disableRipple]="false" (selectedTabChange)="hideElements()" class="mat-tab-group mat-primary">
     <mat-tab hidden disabled></mat-tab>
-    <mat-tab id="luti" label="{{tab._createur}}" *ngFor="let tab of this.listPlaylist; index as i">
-      {{tab._createur}}
+    <mat-tab id="luti" label="{{tab}}" *ngFor="let tab of this.listnomUti; index as i">
+      {{tab}}
       <div class="table-responsive  col-sm-8">
         <table class="js-sort-table table table-light table-striped table-bordered table-hover">
           <thead class="thead-dark">
@@ -21,14 +21,15 @@
           </thead>
 
           <tbody class="thead-secondary">
-            <tr>
-              <td>{{ i + 1 }}</td>
-              <td>{{ tab._nom }}</td>
-              <td>{{ tab._createur }}</td>
-              <td>{{ tab._style}}</td>
-              <td>{{ tab._nbclicks }}</td>
+            <tr *ngFor="let item of this.PlaylistUti">
+
+              <td *ngIf="item._createur == tab">{{ item._id }}</td>
+              <td *ngIf="item._createur == tab">{{ item._nom }}</td>
+              <td *ngIf="item._createur == tab">{{ item._createur }}</td>
+              <td *ngIf="item._createur == tab">{{ item._style}}</td>
+              <td *ngIf="item._createur == tab">{{ item._nbclicks }}</td>
               <!-- <td><button class="glow-on-hover" type="button" >supprimer</button></td> -->
-              <td><button class="glow-on-hover" type="button" routerLink="afficher" (click)="viewPlaylist(i)">voir</button></td>
+              <td *ngIf="item._createur == tab"><button class="glow-on-hover" type="button" routerLink="afficher" (click)="viewPlaylist(i)">voir</button></td>
             </tr>
           </tbody>
         </table>

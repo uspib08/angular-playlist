@@ -13,9 +13,13 @@ import { FormControl } from '@angular/forms';
 export class ListeUtilisateurComponent implements OnInit {
   public listPlaylist : any;
   public listuti : any;
+  public listnomUti : any;
+  public PlaylistUti: any;
 
   constructor(private apimusique : ApiMusiqueService, private dataservice : DataService) {
     this.listuti=new Array();
+    this.listnomUti=new Array();
+    this.PlaylistUti = new Array();
   }
   tabs=['oui', 'non', 'hihi'];
 
@@ -34,22 +38,7 @@ export class ListeUtilisateurComponent implements OnInit {
     console.log(this.listPlaylist);
 
   }
-  @HostListener('document:mousemove', ['$event'])
-  tester() {
-    // console.log(this.listPlaylist[0]._style);
-    for(let index=0;index<this.listPlaylist.length;index++){
-      this.listuti.push(this.listPlaylist[index]._createur)
-    }
 
-    this.listuti = uniqueArray3(this.listuti);
-
-  }
-
-  // recup(){
-  //   var u = document.getElementById('luti')?.innerText;
-  //   console.log(u);
-
-  // }
 
   public viewPlaylist(id : number){
     this.dataservice.noindex = id;
@@ -57,8 +46,32 @@ export class ListeUtilisateurComponent implements OnInit {
 
  }
 
+ @HostListener('document:mousemove', ['$event'])
+ remplirListe(){
+  for (let index = 0; index < this.listPlaylist.length; index++) {
+    this.listnomUti.push(this.listPlaylist[index]._createur);
+  }
+  this.listnomUti = uniqueArray3(this.listnomUti);
+  console.log(this.listnomUti);
+
+ }
+
+
  hideElements(){
    this.emetclick.emit("oui");
+   console.log(this.listPlaylist);
+
+   for (let oui = 0; oui < this.listnomUti.length; oui++) {
+      for (let i = 0; i < this.listPlaylist.length; i++) {
+       console.log(this.listPlaylist[i].createur +"|||"+this.listnomUti[oui]);
+       if(this.listPlaylist[i]._createur == this.listnomUti[oui]){
+         if(!this.PlaylistUti.includes(this.listPlaylist[i])){
+          this.PlaylistUti.push(this.listPlaylist[i]);
+         }
+       }
+     }
+   }
+   console.log(this.PlaylistUti);
  }
 
  recupEvt(a : any){
