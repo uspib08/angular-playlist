@@ -4,7 +4,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiMusiqueService } from '../apiMusique.service';
 import { PlayList } from '../PlayList';
-
+declare const sortTable: any;
 @Component({
   selector: 'app-Lister-Playlist',
 
@@ -38,6 +38,7 @@ export class ListerPlaylistComponent implements OnInit {
     this.apimusique.afficherToutePlaylist().subscribe((response) => {this.listPlaylist = response},
     (error)=>{console.log("Erreur d'affichage playlist : " +error)});
     console.log(this.listPlaylist);
+    sortTable.init();
   }
 
   // ngOnDestroy(){
