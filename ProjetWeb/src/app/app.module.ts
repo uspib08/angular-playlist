@@ -54,6 +54,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import {CdkTableModule} from '@angular/cdk/table';
+import { NotifierComponent } from './notifier/notifier.component';
 
 const appRoutes: Routes = [
   {path: 'ajouter', component : AjouterPlaylistComponent},
@@ -104,7 +105,7 @@ const materialModules = [
   // MatStepperModule,
 ];
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
       AjouterPlaylistComponent,
       ListerPlaylistComponent,
@@ -113,6 +114,7 @@ const materialModules = [
       AjouterMorceauxCreationComponent,
       ListeStyleComponent,
       ListeUtilisateurComponent,
+      NotifierComponent
    ],
   imports: [
     RouterModule.forRoot(appRoutes),
