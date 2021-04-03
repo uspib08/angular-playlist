@@ -3,8 +3,18 @@
     <!-- <form> -->
   </div>
   <!-- </form> -->
-
   <div class="row">
+    <div class="form__group field  col-sm-5 px-5 ">
+      <input type="input" class="form__field" id="nom" placeholder="Entrer un titre" [(ngModel)]="nom" required />
+      <label for="Nom" class="form__label">Titre : </label>
+    </div>
+    <div class="form__group field  col-sm-5 px-5 ">
+      <input type="input" class="form__field" id="nom" placeholder="Entrer un nom d'artiste" [(ngModel)]="createur" required />
+      <label for="Nom" class="form__label">Artiste : </label>
+    </div>
+  </div>
+
+  <!-- <div class="row">
     <div class="col-sm-5 px-5 pt-5">
       <label for="Nom">Titre : </label>
       <input
@@ -25,17 +35,17 @@
         [(ngModel)]="createur"
       />
     </div>
-  </div>
+  </div> -->
   <br />
   <div class="row">
     <button
-      class="btn btn-outline-secondary col offset-1 col-sm-4"
+      class="btn btn-outline-secondary offset-1 col-sm-4"
       (click)="ajouterMorceaux(nom, createur)"
     >
       Ajouter Morceau
     </button>
     <button
-      class="btn btn-outline-primary col offset-1 col-sm-4"
+      class="btn btn-outline-primary offset-1 col-sm-4"
       routerLink="lister"
     >
       Enregistrer
@@ -48,5 +58,5 @@
     </p>
   </div>
 </div>
-  <div class="col offset-1 col-sm-7 px-5 pt-5"></div>
+  <!-- <div class="col offset-1 col-sm-7 px-5 pt-5"></div> -->
 </body>

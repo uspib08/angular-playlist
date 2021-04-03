@@ -10,3 +10,7 @@
   background: green;
   color: white;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
