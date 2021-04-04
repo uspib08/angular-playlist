@@ -2,6 +2,7 @@ import { PlayList } from './../PlayList';
 import { ApiMusiqueService } from './../apiMusique.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { NotifierService } from '../notifier.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class AjouterMorceauxCreationComponent implements OnInit {
   //public test:Subscription;
   public message : string="";
   public pb : number=0;
-  constructor(private apiMusique: ApiMusiqueService) {
+  constructor(private apiMusique: ApiMusiqueService, private notiferservice: NotifierService) {
    //this.test = this.apiMusique.afficherToutePlaylist().subscribe((response) => {this.listePlay = response},
     //(error)=>{console.log("Erreur d'affichage playlist : " +error)});
   }
@@ -35,7 +36,8 @@ export class AjouterMorceauxCreationComponent implements OnInit {
 
     this.message="";
     if(titre == null ||artiste==null){
-      this.message="Renseignez tout les champs ! "
+     // this.message="Renseignez tout les champs ! "
+      this.notiferservice.showNotification('Veuillez remplir les champs', 'OK', 'error');
       return;
     }
     //console.log(titre +  artiste);
@@ -44,7 +46,8 @@ export class AjouterMorceauxCreationComponent implements OnInit {
       for (let key = 0; key < this.listePlay[0]._listMorceaux.lenghth; key++) {
         var a = this.listePlay[0]._listMorceaux[key];
         if (a._titre== titre && a._artiste == artiste ) {
-          this.message="Morceau déjà dans la playlist !"
+          //this.message="Morceau déjà dans la playlist !"
+          this.notiferservice.showNotification('Morceau déjà dans la playlist', 'OK', 'error')
           return;
         }
       }
@@ -54,17 +57,22 @@ export class AjouterMorceauxCreationComponent implements OnInit {
       for (let key = 0; key < this.listePlay[this.listePlay.length-1]._listMorceaux.length; key++) {
         var a = this.listePlay[this.listePlay.length-1]._listMorceaux[key];
         if (a._titre== titre && a._artiste == artiste ) {
-          this.message="Morceau déjà dans la playlist !"
+          //this.message="Morceau déjà dans la playlist !"
+          this.notiferservice.showNotification('Morceau déjà dans la playlist', 'OK', 'error')
           return;
         }
       }
       this.apiMusique.ajouterMorceau(this.listePlay.length-1, titre ,artiste);
-      this.message="Musique ajouté !"
+      //this.message="Musique ajouté !"
+      this.notiferservice.showNotification('Musique ajouté !', 'OK', 'success');
+
+
     }
   }
   this.pb++;
+this.ngOnInit();
 
-  this.ngOnInit();
+
    // console.log(this.apiMusique.afficherToutePlaylist());
   }
 }

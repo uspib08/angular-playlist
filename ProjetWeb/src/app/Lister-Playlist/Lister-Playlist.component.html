@@ -7,7 +7,7 @@
 <!-- <app-liste-utilisateur></app-liste-utilisateur> -->
 <p>Liste des playlists</p>
 <app-liste-utilisateur (emetclick)="recupEvtClick($event)"></app-liste-utilisateur>
-<div class="row" [style.display]="isVisible ? '' : 'none'">
+<div class="row" *ngIf="isVisible" > <!--[style.display]="isVisible ? 'block' : 'none'"-->
   <div class="table-responsive  col-sm-8">
     <table class="js-sort-table table table-light table-striped table-bordered table-hover">
       <thead class="thead-dark">

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 
+
 @Component({
   selector: 'app-Ajouter-playlist',
   templateUrl: './Ajouter-playlist.component.html',
@@ -39,16 +40,16 @@ export class AjouterPlaylistComponent implements OnInit {
     if (nom == null || createur == null || style == null ) {
       // this.message="Des cases vides ..";
       // //console.log("Des cases vides ..");
-      // return;
       this.notiferservice.showNotification('Veuillez remplir les champs', 'OK', 'error');
+      return;
     }
     for (let key = 0; key < this.listPlaylist.length; key++) {
       var a = this.listPlaylist[key];
       if (a._nom== nom && a._createur == createur && a._style==style) {
       //   this.message="Playlist déjà existante !"
       //  // console.log("Déjà dans la playlist finale !");
-      //   return;
         this.notiferservice.showNotification('Playlist déjà existante !', 'OK', 'error');
+         return;
       }
     }
     if(this.pb%2==0){
@@ -56,17 +57,16 @@ export class AjouterPlaylistComponent implements OnInit {
       this.message="Playlist crée ! "
       this.bool=1;
       this.notiferservice.showNotification('Playlist crée !', 'OK', 'success');
+
       //this.scroll(target);
     }
     this.pb++;
-    // refresh la liste des playlist
     this.apiMusique.afficherToutePlaylist().subscribe((response) => {this.listPlaylist = response},
     (error)=>{console.log("Erreur d'affichage playlist : " +error)});
     console.log(this.listPlaylist)
 
-    //console.log(this.apiMusique.afficherToutePlaylist());
 
-   // console.log(this.bool);
+
   }
 
   scroll(id: string){
