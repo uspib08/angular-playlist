@@ -5,13 +5,13 @@
 </head>
 <body>
 
-  <table class="js-sort-table table-striped">
+  <table matSort (matSortChange)="sortData($event)" class=" table-striped">
     <thead class="tbl-header">
       <tr>
-        <th scope="col" class="js-sort-number">#</th>
-        <th scope="col" class="js-sort-string">Artiste</th>
-        <th scope="col" class="js-sort-string">Titre</th>
-        <th scope="col" class="js-sort-string">Contributeur</th>
+        <th scope="col">#</th> <!-- mat-sort-header="num" -->
+        <th scope="col" mat-sort-header="artiste">Artiste</th>
+        <th scope="col" mat-sort-header="titre" >Titre</th>
+        <th scope="col" mat-sort-header="contributeur">Contributeur</th>
         <th>Ajouter</th>
       </tr>
     </thead>
@@ -32,6 +32,11 @@
         </td>
       </tr>
     </tbody>
+    <tfoot *ngIf="this.liste.length>0">
+      <tr>
+        <td class="text-center" colspan="5"><button class="btn btn-outline-warning" (click)="envoyerTout()">Ajouter toutes la liste !</button></td>
+      </tr>
+    </tfoot>
   </table>
 
   <!-- </form> -->
@@ -64,7 +69,7 @@
   </div>
 <div class="text-center">
   <br>
-    <p>{{message}}</p>
+    <!--<p>{{message}}</p>-->
   </div>
   <div class="px-5 pt-5 text-center">
     <button
