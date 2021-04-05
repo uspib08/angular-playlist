@@ -1,3 +1,4 @@
+import { NotifierService } from './../notifier.service';
 import { Morceau } from './../Morceau';
 import { DataService } from './../DataService';
 import { PlayList } from '../PlayList';
@@ -5,7 +6,8 @@ import { ApiMusiqueService } from '../apiMusique.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 import { MatSortModule } from '@angular/material/sort' ;
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
+import { ListerPlaylistComponent } from '../Lister-Playlist/Lister-Playlist.component';
 declare const sortTable: any;
 @Component({
   selector: 'app-Afficher-Playlist',
@@ -17,6 +19,9 @@ export class AfficherPlaylistComponent implements OnInit {
   public Playlist: PlayList;
   public test: number = 0;
   public searchText: any;
+  public static enregistre: boolean = false;
+
+
 
 
   //public PlaylistSorted: any; // marche pas
@@ -24,10 +29,15 @@ export class AfficherPlaylistComponent implements OnInit {
   constructor(
     private apiMusique: ApiMusiqueService,
     public dataservice: DataService,
-    private router : Router
+    private router : Router,
+    private notifier : NotifierService,
   ) {
     this.Playlist = new PlayList();
-
+    // router.events.subscribe((event) => {
+    //   if (event instanceof NavigationStart) {
+    //     AfficherPlaylistComponent.enregistre = false;
+    //   }
+    // });
   //  this.PlaylistSorted = new Array(); // marche pas
 
   }
@@ -49,7 +59,9 @@ export class AfficherPlaylistComponent implements OnInit {
       sortTable.init()
     console.log(this.Playlist._nom);
   }
-  ngOnDestroy() {}
+  ngOnDestroy() {
+
+  }
 
   incrementer() {
     this.test = 1;
@@ -70,7 +82,38 @@ export class AfficherPlaylistComponent implements OnInit {
   reloadTableau(){
     this.router.navigateByUrl("", {skipLocationChange: true}).then(()=>
     this.router.navigate(["lister/afficher/"]));
-    
+
+  }
+
+  like(){
+    if(!AfficherPlaylistComponent.enregistre){
+      this.apiMusique.incrementerLikes(this.dataservice.noindex);
+      this.router.navigateByUrl("", {skipLocationChange: true}).then(()=>
+      this.router.navigate(["lister/afficher/"]));
+      this.notifier.showNotification("Vous avez liké cette Playlist","OK", "success");
+      AfficherPlaylistComponent.enregistre=true;
+    }else{
+      this.notifier.showNotification("Votre avis a déjà été enregistré", "OK", "error");
+    }
+
+  }
+
+  dislike(){
+    if(!AfficherPlaylistComponent.enregistre){
+      this.apiMusique.incrementerDislikes(this.dataservice.noindex);
+      this.router.navigateByUrl("", {skipLocationChange: true}).then(()=>
+      this.router.navigate(["lister/afficher/"]));
+      this.notifier.showNotification("Vous n'avez pas aimé cette Playlist", "OK", "error");
+      AfficherPlaylistComponent.enregistre=true;
+    }else{
+      this.notifier.showNotification("Votre avis a déjà été enregistré", "OK", "error");
+    }
+
+  }
+  retour(){
+    AfficherPlaylistComponent.enregistre = false;
+    this.router.navigate(["lister"]);
+    ListerPlaylistComponent.refresh = true;
   }
 
   }

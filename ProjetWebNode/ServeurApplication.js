@@ -45,4 +45,12 @@ app.delete('/supprimer/:id', function(req, res){
     res.send(b1);
 });
 
+app.put('/like/:id', function(req, res){
+    b1.incrementerL(req.params.id)
+});
+
+app.put('/dislike/:id', function(req, res){
+    b1.incrementerD(req.params.id)
+});
+
 app.listen(port, () => console.log(`Example app listening on port port!`));

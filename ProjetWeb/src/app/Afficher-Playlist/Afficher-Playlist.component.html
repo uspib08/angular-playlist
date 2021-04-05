@@ -13,16 +13,27 @@
   <h3>Réalisée par {{ Playlist._createur }}</h3>
   <p>Nombre de vues : {{ Playlist._nbclicks }}</p> -->
   <br><br>
+
+  <button class="glow-on-hover" (click)="retour()"><span class="material-icons">
+    reply
+    </span></button>
+    <div>
+      <ul>
+        <li id="text-like">{{ Playlist._likes }}  <span class="material-icons">thumb_up</span></li>
+        <li id="text-dislike">{{ Playlist._dislikes }}  <span class="material-icons">thumb_down_alt</span></li>
+      </ul>
+    </div>
+
   <mat-card class="carte col-sm-5 offset-3">
     <mat-card-header class="col-sm-5 offset-4">
       <mat-card-title> {{ Playlist._nom }}</mat-card-title>
       <mat-card-subtitle>Réalisée par : {{ Playlist._createur }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions>
-      <button mat-button class="mbutton">like      <span class="material-icons">
+      <button mat-button class="mbutton" id="like" (click)="like()" >like      <span class="material-icons">
         thumb_up
         </span></button>
-      <button mat-button class="mbutton">dislike     <span class="material-icons">
+      <button mat-button class="mbutton" id="dislike" (click)="dislike()" >dislike     <span class="material-icons">
         thumb_down_alt
         </span></button>
     </mat-card-actions>

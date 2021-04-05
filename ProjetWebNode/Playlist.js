@@ -15,6 +15,8 @@ module.exports = class Playlist{
         this._nbclicks =0;
         this._listMorceaux = [];
         this._listContributeurs = [];
+        this._likes = 0;
+        this._dislikes = 0;
     }
 
     ajouterMorceau(titre, artiste){
@@ -42,6 +44,14 @@ module.exports = class Playlist{
 
     get listContributeurs(){
         return this._listContributeurs;
+    }
+
+    incrementerNbLikes(){
+        this._likes++;
+    }
+
+    incrementerNbDislikes(){
+        this._dislikes++;
     }
 
 

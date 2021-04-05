@@ -61,6 +61,22 @@ module.exports = class banquePlaylist{
 
     }
 
+    incrementerL(id){
+        for (let index = 0; index < this.listPlaylist.length; index++) {
+            if(this.listPlaylist[index]._id==id){
+                this.listPlaylist[index].incrementerNbLikes();
+                console.log(this.listPlaylist[index]._likes);
+            }
+        }
+    }
+    incrementerD(id){
+        for (let index = 0; index < this.listPlaylist.length; index++) {
+            if(this.listPlaylist[index]._id==id){
+                this.listPlaylist[index].incrementerNbDislikes();
+            }
+        }
+    }
+
     get play(){
         return this.listPlaylist;
     }

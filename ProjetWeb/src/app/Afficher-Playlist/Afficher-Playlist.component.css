@@ -82,6 +82,7 @@ td{
   position: relative;
   z-index: 0;
   border-radius: 10px;
+  margin-left: 10px;
   }
 
   .glow-on-hover:before {
@@ -185,6 +186,30 @@ footer{
 .mbutton {
   border: 3px solid black;
   background-color: white;
+}
+
+#like:hover{
+  background-color: rgb(51, 238, 51);
+}
+
+#dislike:hover{
+  background-color: rgb(253, 24, 24);
+}
+
+ul {
+  list-style-type: none;
+}
+
+li{
+  text-align: right;
+  margin-right: 20px;
+
+}
+#text-like{
+  color: rgb(30, 235, 30);
+}
+#text-dislike{
+  color: red;
 }
 
 

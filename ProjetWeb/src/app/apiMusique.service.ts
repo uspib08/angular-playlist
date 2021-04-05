@@ -47,4 +47,18 @@ export class ApiMusiqueService {
     )
   }
 
+  public incrementerLikes(id : number){
+    this.httpclient.put(this.url+"like/"+id, {title: '1 Like en plus'})
+    .subscribe((response)=>{console.log(response);},
+    (error)=>{console.log("erreur ajoutée");}
+    )
+  }
+
+  public incrementerDislikes(id : number){
+    this.httpclient.put(this.url+"dislike/"+id, {title: '1 Dislike en plus'})
+    .subscribe((response)=>{console.log(response);},
+    (error)=>{console.log("erreur ajoutée");}
+    )
+  }
+
 }

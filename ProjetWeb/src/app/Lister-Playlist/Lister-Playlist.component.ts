@@ -22,6 +22,8 @@ export class ListerPlaylistComponent implements OnInit {
   public sty : string="";
   public searchText: any;
   public isVisible : boolean=true;
+  public static refresh:boolean = false;
+
 
 
 
@@ -39,6 +41,10 @@ export class ListerPlaylistComponent implements OnInit {
     (error)=>{console.log("Erreur d'affichage playlist : " +error)});
     console.log(this.listPlaylist);
     sortTable.init();
+    if(ListerPlaylistComponent.refresh){
+      location.reload();
+      ListerPlaylistComponent.refresh=false;
+    }
   }
 
   // ngOnDestroy(){
@@ -65,7 +71,10 @@ export class ListerPlaylistComponent implements OnInit {
     location.reload();
   }
 
-
+  recupRet(b : any){
+    console.log("oui");
+    location.reload();
+  }
   recupEvt(a : any){
     console.log(a);
     this.listPlaylist = a;

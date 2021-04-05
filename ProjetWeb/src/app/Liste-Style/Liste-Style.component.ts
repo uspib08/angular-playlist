@@ -32,6 +32,7 @@ export class ListeStyleComponent implements OnInit {
       }
     );
 
+
     // this.tester();
 
     // this.dummyClickRef.nativeElement.click()
