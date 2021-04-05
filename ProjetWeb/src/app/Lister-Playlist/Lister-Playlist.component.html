@@ -9,16 +9,16 @@
 <app-liste-utilisateur (emetclick)="recupEvtClick($event)"></app-liste-utilisateur>
 <div class="row" [style.display]="isVisible ? '' : 'none'">
   <div class="table-responsive  col-sm-9">
-    <table class="js-sort-table table-striped">
+    <table matSort (matSortChange)="sortData($event)" class=" table-striped">
       <thead class="tbl-header">
         <tr>
-          <th scope="col" class="js-sort-number">Numero</th>
-          <th scope="col" class="js-sort-string">Nom</th>
-          <th scope="col" class="js-sort-string">Créateur</th>
-          <th scope="col" class="js-sort-string">Style</th>
-          <th class="js-sort-number">Nombre de clicks</th>
-          <th class="js-sort-none">Supprimer</th>
-          <th class="js-sort-none">Visualisation</th>
+          <th mat-sort-header="num" scope="col" >Numero</th>
+          <th mat-sort-header="nom" scope="col" >Nom</th>
+          <th mat-sort-header="createur" scope="col" >Créateur</th>
+          <th mat-sort-header="style" scope="col" >Style</th>
+          <th mat-sort-header="clicks">Nombre de clicks</th>
+          <th >Supprimer</th>
+          <th >Visualisation</th>
         </tr>
       </thead>
 
@@ -30,7 +30,7 @@
           <td>{{ play._style}}</td>
           <td>{{ play._nbclicks }}</td>
           <td><button class="glow-on-hover" type="button" (click)="supprimer(play._id)">supprimer</button></td>
-          <td><button class="glow-on-hover" type="button" routerLink="afficher" (click)="viewPlaylist(i) ">voir</button></td>
+          <td><button class="glow-on-hover" type="button" routerLink="afficher" (click)="viewPlaylist(play._id) ">voir</button></td>
         </tr>
       </tbody>
     </table>
