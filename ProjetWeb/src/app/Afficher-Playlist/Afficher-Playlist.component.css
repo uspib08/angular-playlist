@@ -149,3 +149,43 @@ footer{
 ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
+
+
+.carte{
+  /* max-width: 400px; */
+  margin-bottom: 30px;
+  align-items: center;
+  border-radius: 10px;
+  background: url(/assets/musiquefont.jpg);
+}
+
+.mat-card-title{
+  border-radius: 5px;
+  background: white;
+  border: 3px solid black;
+  padding: 5px;
+  color: black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.mat-card-subtitle{
+  color:black;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.mbutton {
+  border: 3px solid black;
+  background-color: white;
+}
+
+
+

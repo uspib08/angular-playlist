@@ -5,17 +5,18 @@
 </head>
 <body>
 
-  <table class="js-sort-table table table-dark table-striped">
-    <thead>
+  <table class="js-sort-table table-striped">
+    <thead class="tbl-header">
       <tr>
         <th scope="col" class="js-sort-number">#</th>
         <th scope="col" class="js-sort-string">Artiste</th>
         <th scope="col" class="js-sort-string">Titre</th>
         <th scope="col" class="js-sort-string">Contributeur</th>
+        <th>Ajouter</th>
       </tr>
     </thead>
 
-    <tbody>
+    <tbody class="tbl-content">
       <tr *ngFor="let m of this.liste; let i = index">
         <td>{{ i + 1 }}</td>
         <td>{{ m._artiste }}</td>
