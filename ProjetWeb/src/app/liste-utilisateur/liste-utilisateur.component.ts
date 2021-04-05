@@ -3,6 +3,7 @@ import { ApiMusiqueService } from './../apiMusique.service';
 import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
 import { Component, EventEmitter, HostListener, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Sort } from '@angular/material/sort';
 declare const sortTable: any;
 @Component({
   selector: 'app-liste-utilisateur',
@@ -88,7 +89,30 @@ export class ListeUtilisateurComponent implements OnInit {
 }
 
 
+sortData(sort : Sort){
+  const data = this.PlaylistUti;
+  if (!sort.active || sort.direction === '') {
+    this.PlaylistUti = data;
+    return;
+  }
+
+  this.PlaylistUti = data.sort((a: { _id: string | number; _nom: string | number; _createur: string | number; _style: string | number; _nbclicks: string | number; }, b: { _id: string | number; _nom: string | number; _createur: string | number; _style: string | number; _nbclicks: string | number; }) => {
+    const isAsc = sort.direction === 'asc';
+    switch (sort.active) {
+      case 'num': return compare(a._id, b._id, isAsc);
+      case 'nom': return compare(a._nom, b._nom, isAsc);
+      case 'createur': return compare(a._createur, b._createur, isAsc);
+      case 'style': return compare(a._style, b._style, isAsc);
+      case 'clicks': return compare(a._nbclicks , b._nbclicks , isAsc);
+      default: return 0;
+    }
+  });
 }
+}
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+}
+
 function uniqueArray3(a: any) {
   function onlyUnique(value: any, index: any, self: any) {
     return self.indexOf(value) === index;

@@ -11,6 +11,8 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
+import { Sort } from '@angular/material/sort';
+import { NotifierService } from '../notifier.service';
 
 @Component({
   selector: 'app-Liste-Morceaux',
@@ -26,7 +28,8 @@ export class ListeMorceauxComponent implements OnInit {
 
   constructor(
     private apimusique: ApiMusiqueService,
-    private dataservice: DataService
+    private dataservice: DataService,
+    private notiferservice: NotifierService
   ) {
     this.Playlist=new Array();
     this.liste = new Array();
@@ -53,6 +56,7 @@ export class ListeMorceauxComponent implements OnInit {
     // verification que rien ne soit vide
     if (artiste == null || titre == null || contributeur == null ) {
       this.message="Des cases vides ..";
+      this.notiferservice.showNotification('Veuillez remplir les champs', 'OK', 'error');
       //console.log("Des cases vides ..");
       return;
     }
@@ -61,6 +65,7 @@ export class ListeMorceauxComponent implements OnInit {
       var a = this.liste[key];
       if (a._artiste == artiste && a._titre == titre) {
         this.message="Déjà dans la liste ! "
+        this.notiferservice.showNotification('Déjà dans la liste !', 'OK', 'error');
         //console.log("Déjà dans la liste ! ");
         return;
       }
@@ -71,6 +76,7 @@ export class ListeMorceauxComponent implements OnInit {
       var a = listemorceau[key];
       if (a._artiste == artiste && a._titre == titre) {
         this.message="Déjà dans la playlist finale !"
+        this.notiferservice.showNotification('Déjà dans la playlist finale !', 'OK', 'error');
        // console.log("Déjà dans la playlist finale !");
         return;
       }
@@ -86,6 +92,7 @@ export class ListeMorceauxComponent implements OnInit {
         rank._contributeur = contributeur;
       }
     });
+    //this.notiferservice.showNotification( 'Ajouter au propositions !', 'OK', 'success');
     //this.refreshData();
   }
 
@@ -114,7 +121,19 @@ export class ListeMorceauxComponent implements OnInit {
       this.apimusique.ajouterContributeur(this.dataservice.noindex, contri);
     }
     this.delete(tit, art);
+    this.notiferservice.showNotification( 'Vos suggestions ont bien été ajouter à la playlist !', 'OK', 'success');
     //this.refreshData();
+  }
+  envoyerTout(){
+    for(let key = 0; key<this.liste.length;key++){
+      var a = this.liste[key];
+      console.log(key)
+      this.envoyer(a._titre,a._artiste,a._contributeur);
+
+    }
+    if(this.liste.length>0){
+      this.envoyerTout();
+    }
   }
 
   delete(tit: string, art: string) {
@@ -131,15 +150,28 @@ export class ListeMorceauxComponent implements OnInit {
     //this.refreshData();
   }
 
-  /*refreshData(){
-    this.apimusique.afficherPlaylist(this.dataservice.noindex).subscribe(
-      (response) => {
-        this.Playlist = response;
-      },
-      (error) => {
-        console.log("Erreur d'affichage playlist : " + error);
-      }
-    );
+  sortData(sort : Sort){
+    const data = this.liste;
 
-  }*/
+    if (!sort.active || sort.direction === '') {
+      this.liste = data;
+      return;
+    }
+
+    this.liste = data.sort((a: { _id: string | number; _artiste: string | number; _titre: string | number; _contributeur: string | number; },b: { _id: string | number; _artiste: string | number; _titre: string | number; _contributeur: string | number; }) => {
+      const isAsc = sort.direction === 'asc';
+     // console.log(a)
+      switch (sort.active) {
+        //case 'num': return compare(a._id, b._id, isAsc);
+        case 'artiste': return compare(a._artiste, b._artiste, isAsc);
+        case 'titre': return compare(a._titre, b._titre, isAsc);
+        case 'contributeur': return compare(a._contributeur, b._contributeur, isAsc);
+        default: return 0;
+      }
+    });
+  }
 }
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+}
+
