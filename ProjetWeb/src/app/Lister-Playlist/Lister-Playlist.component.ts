@@ -27,8 +27,7 @@ export class ListerPlaylistComponent implements OnInit {
 
 
   constructor(private apimusique:  ApiMusiqueService,
-              private router : Router,
-              private routeactive: ActivatedRoute,
+
               public dataservice : DataService) {
                 this.laliste = new Array();
   }
@@ -73,7 +72,15 @@ export class ListerPlaylistComponent implements OnInit {
   }
 
   recupEvtClick(b : any){
-    // console.log("test");
-    this.isVisible = false;
+     //console.log("test"+b);
+     if(b=="oui"){
+       this.isVisible = false;
+     }
+     else{
+       console.log("c'est ok ?")
+       this.isVisible= true;
+       location.reload()
+     }
+
   }
 }
