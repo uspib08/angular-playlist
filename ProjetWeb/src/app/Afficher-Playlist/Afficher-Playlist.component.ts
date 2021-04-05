@@ -2,9 +2,10 @@ import { Morceau } from './../Morceau';
 import { DataService } from './../DataService';
 import { PlayList } from '../PlayList';
 import { ApiMusiqueService } from '../apiMusique.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 import { MatSortModule } from '@angular/material/sort' ;
+import { Router } from '@angular/router';
 declare const sortTable: any;
 @Component({
   selector: 'app-Afficher-Playlist',
@@ -17,11 +18,13 @@ export class AfficherPlaylistComponent implements OnInit {
   public test: number = 0;
   public searchText: any;
 
+
   //public PlaylistSorted: any; // marche pas
 
   constructor(
     private apiMusique: ApiMusiqueService,
-    public dataservice: DataService
+    public dataservice: DataService,
+    private router : Router
   ) {
     this.Playlist = new PlayList();
 
@@ -65,7 +68,9 @@ export class AfficherPlaylistComponent implements OnInit {
 
   }
   reloadTableau(){
-    location.reload();
+    this.router.navigateByUrl("", {skipLocationChange: true}).then(()=>
+    this.router.navigate(["lister/afficher/"]));
+    
   }
 
   }

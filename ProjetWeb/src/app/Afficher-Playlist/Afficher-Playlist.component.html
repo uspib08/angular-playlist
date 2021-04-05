@@ -15,7 +15,7 @@
   <br><br>
   <mat-card class="carte col-sm-5 offset-3">
     <mat-card-header class="col-sm-5 offset-4">
-      <mat-card-title> {{Playlist._nom}}</mat-card-title>
+      <mat-card-title> {{ Playlist._nom }}</mat-card-title>
       <mat-card-subtitle>Réalisée par : {{ Playlist._createur }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions>
@@ -61,8 +61,8 @@
         <table class="js-sort-table ">
           <thead class="tbl-header">
             <tr>
-              <th class="js-sort-number">index</th>
-              <th  class="js-sort-string">contributeur</th>
+              <!-- <th class="js-sort-number">index</th> -->
+              <th  class="js-sort-string">contributeurs</th>
             </tr>
           </thead>
           <tbody class="tbl-content">
@@ -72,7 +72,7 @@
                 index as i
               "
             >
-              <td>{{ i + 1 }}</td>
+              <!-- <td>{{ i + 1 }}</td> -->
               <td>{{ play }}</td>
             </tr>
           </tbody>

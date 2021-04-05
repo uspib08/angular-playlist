@@ -121,7 +121,7 @@ export class ListeMorceauxComponent implements OnInit {
       this.apimusique.ajouterContributeur(this.dataservice.noindex, contri);
     }
     this.delete(tit, art);
-    this.notiferservice.showNotification( 'Vos suggestions ont bien été ajouter à la playlist !', 'OK', 'success');
+    this.notiferservice.showNotification( 'Vos suggestions ont bien été ajoutées à la playlist !', 'OK', 'success');
     //this.refreshData();
   }
   envoyerTout(){

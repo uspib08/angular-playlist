@@ -49,7 +49,6 @@ export class ListerPlaylistComponent implements OnInit {
    public viewPlaylist(id : number){
       this.dataservice.noindex = id;
       console.log(this.dataservice.noindex);
-
    }
 
    recup(s : string){
