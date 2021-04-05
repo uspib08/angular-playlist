@@ -59,12 +59,12 @@ export class ListeUtilisateurComponent implements OnInit {
  }
 
 
- hideElements(tabChangeEvent: MatTabChangeEvent){
+ hideElements(){
 
    //console.log('index => ', tabChangeEvent.index);
-   if(tabChangeEvent.index==0){
-     this.emetclick.emit("non");
-   }
+  //  if(tabChangeEvent.index==0){
+  //    this.emetclick.emit("non");
+  //  }
    this.emetclick.emit("oui");
    //console.log(this.listPlaylist);
 
@@ -78,7 +78,7 @@ export class ListeUtilisateurComponent implements OnInit {
        }
      }
    }
-   sortTable.init();
+  //  sortTable.init();
    console.log(this.PlaylistUti);
  }
 

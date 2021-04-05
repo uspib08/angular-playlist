@@ -56,6 +56,7 @@ export class ListeStyleComponent implements OnInit {
 
   }
 
+
   filtrer(style : string){
     // this.tester();
     console.log(this.listStyle);
@@ -92,4 +93,10 @@ function uniqueArray3(a: any) {
   var unique = a.filter(onlyUnique); // returns ['a', 1, 2, '1']
 
   return unique;
+}
+
+
+
+function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
 }
