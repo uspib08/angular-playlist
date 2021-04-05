@@ -59,12 +59,12 @@ export class ListeUtilisateurComponent implements OnInit {
  }
 
 
- hideElements(){
+ hideElements(tabChangeEvent : MatTabChangeEvent){
 
-   //console.log('index => ', tabChangeEvent.index);
-  //  if(tabChangeEvent.index==0){
-  //    this.emetclick.emit("non");
-  //  }
+   console.log('index => ', tabChangeEvent.index);
+   if(tabChangeEvent.index==0){
+     this.emetclick.emit("non");
+   }
    this.emetclick.emit("oui");
    //console.log(this.listPlaylist);
 
