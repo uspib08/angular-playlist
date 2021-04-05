@@ -34,6 +34,7 @@ export class AjouterMorceauxCreationComponent implements OnInit {
         console.log("Erreur d'affichage playlist : " + error);
       }
     );
+    document.getElementById("test")?.focus();
   }
   ngOnDestroy() {
     //this.test.unsubscribe();
@@ -89,7 +90,7 @@ export class AjouterMorceauxCreationComponent implements OnInit {
           }
         }
         this.apiMusique.ajouterMorceau(
-          this.listePlay.length - 1,
+          this.listePlay.length,
           titre,
           artiste
         );
@@ -106,4 +107,6 @@ export class AjouterMorceauxCreationComponent implements OnInit {
 
     // console.log(this.apiMusique.afficherToutePlaylist());
   }
+
 }
+

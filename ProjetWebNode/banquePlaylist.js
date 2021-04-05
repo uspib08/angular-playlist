@@ -18,20 +18,32 @@ module.exports = class banquePlaylist{
     }
 
     afficherListePlaylist(id){
-       this.listPlaylist[id].incrementerNbclicks();
-        return this.listPlaylist[id];
+        for (let index = 0; index < this.listPlaylist.length; index++) {
+            if(this.listPlaylist[index]._id== id){
+                this.listPlaylist[index].incrementerNbclicks();
+                return this.listPlaylist[index];
+            }
+            
+        }
+
     }
     afficherToutePlaylist(){
         return this.listPlaylist;
     }
 
     ajouterMorceauPlaylist(id, titre, artiste){
-        this.listPlaylist[id].ajouterMorceau(titre, artiste);
-
+        for (let index = 0; index < this.listPlaylist.length; index++) {
+            if(this.listPlaylist[index]._id==id){
+                this.listPlaylist[index].ajouterMorceau(titre, artiste);
+            }
+        }
     }
     ajouterContributeurPlaylist(id, contri){
-        this.listPlaylist[id].ajouterContributeur(contri);
-
+        for (let index = 0; index < this.listPlaylist.length; index++) {
+            if(this.listPlaylist[index]._id==id){
+                this.listPlaylist[index].ajouterContributeur(contri);
+            }
+        }
     }
     supprimerPlaylist(id){
         console.log(id);
